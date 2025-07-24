@@ -11,22 +11,67 @@ import { withBase } from '../utils/basePath';
 >
   <Hero />
   
-  <!-- Product Showcase Video -->
-  <section class="py-16 bg-gray-50">
+  <!-- Premium Product Video Showcase -->
+  <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Fresh Lemons - Premium Quality</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">See our premium Spanish lemons in action - from harvest to delivery, ensuring the highest quality for our global partners.</p>
+      <div class="text-center mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <span class="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
+            Premium Spanish Lemons
+          </span>
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Experience the exceptional quality of our Spanish lemons - from our orchards to your market. 
+          Watch our premium citrus fruits showcase the freshness and excellence that defines 
+          <span class="font-semibold text-gray-900">MED SS IMPORT & EXPORT</span>.
+        </p>
       </div>
-      <div class="max-w-4xl mx-auto">
-        <video 
-          controls 
-          class="w-full rounded-2xl shadow-2xl"
-          poster={withBase('/IMG-20250701-WA0047.jpg')}
+      
+      <!-- Enhanced Video Container -->
+      <div class="max-w-5xl mx-auto">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-r from-yellow-100 to-orange-100 p-2">
+          <video 
+            controls 
+            preload="metadata"
+            class="w-full rounded-2xl bg-black"
+            poster={withBase('/IMG-20250701-WA0047.jpg')}
+            style="aspect-ratio: 16/9;"
+          >
+            <source src={withBase('/VID-20250701-WA0055.mp4')} type="video/mp4">
+            <p class="text-white p-4">
+              Your browser doesn't support HTML5 video. 
+              <a href={withBase('/VID-20250701-WA0055.mp4')} class="text-yellow-400 underline">
+                Download the video
+              </a> to watch it.
+            </p>
+          </video>
+          
+          <!-- Video Overlay for Better UX -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none rounded-2xl"></div>
+        </div>
+        
+        <!-- Video Description -->
+        <div class="mt-8 text-center">
+          <div class="inline-flex items-center space-x-2 bg-white rounded-full px-6 py-3 shadow-lg border">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm font-medium text-gray-700">100% Natural • Fresh from Spain • Export Quality</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Call to Action -->
+      <div class="text-center mt-12">
+        <a 
+          href={withBase('/products')} 
+          class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-full hover:from-green-700 hover:to-green-800 transform hover:scale-105 transition-all duration-200 shadow-xl hover:shadow-2xl"
         >
-          <source src={withBase('/VID-20250701-WA0055.mp4')} type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+          <span>Explore Our Complete Product Range</span>
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
