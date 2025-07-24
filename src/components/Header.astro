@@ -3,14 +3,13 @@
 import { withBase } from '../utils/basePath';
 ---
 
-<header class="bg-white shadow-lg sticky top-0 z-50 py-4">
-  <nav class="container py-2">
+<header class="bg-white shadow-lg sticky top-0 z-50 py-2">
+  <nav class="container py-1">
     <div class="flex justify-between items-center">
       <!-- Logo -->
       <div class="flex items-center">
-        <a href={withBase('/')} class="text-2xl font-bold text-green-800 hover:text-green-600 transition-colors flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-green-700"><rect x="2" y="7" width="15" height="10" rx="2"/><rect x="17" y="10" width="5" height="7" rx="1"/><circle cx="7" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg>
-          <span data-i18n="brand">Global road</span>
+        <a href={withBase('/')} class="text-2xl font-bold text-green-800 hover:text-green-600 transition-colors flex items-center">
+          <img src={withBase('/logo.png')} alt="MED SS IMPORT & EXPORT Logo" class="h-6 w-auto md:h-8 lg:h-10 object-contain transition-all duration-200">
         </a>
       </div>
 
@@ -29,7 +28,7 @@ import { withBase } from '../utils/basePath';
           Contact
         </a>
         <button id="lang-toggle" onclick="toggleLang()" class="ml-4 px-4 py-2 rounded-lg bg-gray-100 hover:bg-green-100 text-green-800 font-semibold transition">
-          <span data-i18n="lang_btn">FR</span>
+          <span data-i18n="lang_btn">ES</span>
         </button>
       </div>
 
@@ -66,7 +65,7 @@ import { withBase } from '../utils/basePath';
           Contact
         </a>
         <button id="lang-toggle-mobile" onclick="toggleLang()" class="mt-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-green-100 text-green-800 font-semibold transition text-center">
-          <span data-i18n="lang_btn">FR</span>
+          <span data-i18n="lang_btn">ES</span>
         </button>
       </div>
     </div>
@@ -76,33 +75,35 @@ import { withBase } from '../utils/basePath';
 <script is:inline>
   const translations = {
     en: {
-      brand: "Global road",
+      brand: "MED SS IMPORT & EXPORT",
       nav_home: "Home",
       nav_products: "Products",
       nav_about: "About Us",
       nav_contact: "Contact",
-      lang_btn: "FR",
+      lang_btn: "ES",
       // Footer
-      footer_desc: "Your trusted partner in global import & export. Connecting the world with reliable logistics and fresh produce.",
+      footer_desc: "Your trusted partner in global import & export. Specializing in fresh produce from Spain to worldwide markets.",
       footer_links: "Quick Links",
       footer_contact: "Contact Us",
-      footer_address: "Rue 36 Ibn tachfine agdal rabat",
-      footer_phone: "+212 600-000000",
-      footer_email: "contact@globalroad.com",
-      footer_copyright: `© ${new Date().getFullYear()} Global road. All rights reserved.`,
+      footer_address: "LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONA",
+      footer_phone: "+34 667 91 80 18",
+      footer_phone_company: "+34 667 91 80 18",
+      footer_phone_commercial: "+34 624 18 32 01",
+      footer_email: "info.medssimport@gmail.com",
+      footer_copyright: `© ${new Date().getFullYear()} MED SS IMPORT & EXPORT. All rights reserved.`,
       // Hero
-      hero_title: "Premium Products for Global Trade",
-      hero_desc: "Your premier partner for global import/export and logistics. From port to port, Global road ensures quality, reliability, and seamless delivery in every shipment.",
+      hero_title: "Premium Spanish Produce for Global Markets",
+      hero_desc: "Your premier partner for Spanish fresh produce export. From our facilities in Sevilla and Barcelona, MED SS ensures quality, reliability, and seamless delivery worldwide.",
       hero_btn: "View Our Products",
       hero_countries: "Countries Served",
       hero_experience: "Years Experience",
       hero_ontime: "On-Time Delivery",
       // About
-      about_title: "Our Story: Years of Global Trade Excellence",
-      about_desc: "From a small operation to a global leader in import/export logistics, our journey has been driven by an unwavering commitment to quality, reliability, and building lasting partnerships.",
+      about_title: "Our Story: Spanish Excellence in Global Trade",
+      about_desc: "MED SS IMPORT & EXPORT specializes in connecting Spanish agricultural excellence with global markets. Based in Sevilla with operations in Barcelona's Mercabarna, we are committed to quality and reliability.",
       about_mission_title: "Our Mission",
-      about_mission_1: "To connect the world's finest farms with businesses that demand exceptional quality, creating sustainable value for growers, partners, and consumers while promoting responsible agricultural practices globally.",
-      about_mission_2: "We believe that fresh, high-quality produce should be accessible to businesses worldwide, regardless of geographic boundaries or seasonal limitations.",
+      about_mission_1: "To export Spain's finest fresh produce to businesses worldwide that demand exceptional quality, creating sustainable value for Spanish growers and international partners.",
+      about_mission_2: "We believe Spanish fresh produce represents quality and tradition that should be accessible to businesses worldwide.",
       about_values_title: "Our Core Values",
       about_value_quality: "Quality First:",
       about_value_quality_desc: " Never compromising on the standards that define exceptional produce",
@@ -126,20 +127,40 @@ import { withBase } from '../utils/basePath';
       products_tropical: "Tropical Fruits",
       // Contact
       contact_title: "Get In Touch With Us",
-      contact_intro: "Ready to discuss your sourcing or logistics needs? Our team of experts is here to provide solutions that meet your quality, volume, and delivery requirements.",
+      contact_intro: "Ready to discuss your Spanish produce sourcing needs? Our team of experts is here to provide solutions that meet your quality, volume, and delivery requirements.",
       contact_info_title: "Contact Information",
-      contact_info_desc: "Our team is available to discuss your fresh produce needs, answer questions about our logistics, and provide expert guidance on international sourcing.",
+      contact_info_desc: "Our team is available to discuss your fresh produce needs, answer questions about our logistics, and provide expert guidance on Spanish agricultural products.",
       contact_phone_title: "Phone",
-      contact_phone: "+212 600-000000",
+      contact_phone: "+34 667 91 80 18",
+      contact_commercial_title: "Commercial",
+      contact_commercial_phone: "+34 624 18 32 01",
       contact_phone_hours: "Monday - Friday: 8:00 AM - 6:00 PM",
       contact_email_title: "Email",
-      contact_email: "contact@globalroad.com",
+      contact_email: "info.medssimport@gmail.com",
       contact_email_response: "We respond within 24 hours",
       contact_hq_title: "Headquarters",
-      contact_hq_address: "Rue 36 Ibn tachfine agdal rabat",
+      contact_hq_address: "LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONA",
+      contact_warehouse_title: "Warehouse",
+      contact_fiscal_title: "Fiscal Address",
+      contact_fiscal_address: "CALLE PUERTO 17 B SEVILLA 41020",
+      // Company Information
+      company_info_title: "Company Information",
+      company_name_label: "Company",
+      company_name: "MED SS IMPORT & EXPORT",
+      fiscal_address_label: "Fiscal Address",
+      warehouse_address_label: "Warehouse Address",
+      tax_id_label: "Tax ID",
+      tax_id: "NIF / B06934541",
+      bank_account_label: "Bank Account",
+      bank_account: "ES7600810215250001949495",
+      swift_label: "SWIFT/BIC",
+      swift_code: "BSABESBBXXX",
+      email_label: "Email",
+      company_phone_label: "Company Phone",
+      commercial_phone_label: "Commercial Phone",
       // Featured Products Section
-      featured_title: "Premium Products for Global Trade",
-      featured_desc: "Sourced and delivered by 🚢 Global road — your trusted partner for import/export logistics and fresh produce worldwide.",
+      featured_title: "Premium Spanish Products for Global Trade",
+      featured_desc: "Sourced and delivered by 🚢 MED SS IMPORT & EXPORT — your trusted partner for Spanish fresh produce worldwide.",
       featured_card1_title: "Container Transport",
       featured_card2_title: "Fresh Produce Logistics",
       featured_card3_title: "Cold Chain Solutions",
@@ -156,8 +177,111 @@ import { withBase } from '../utils/basePath';
       card_apple_warehouse_title: "Apple Warehouse",
       card_bulk_berries_title: "Bulk Berries"
     },
+    es: {
+      brand: "MED SS IMPORT & EXPORT",
+      nav_home: "Inicio",
+      nav_products: "Productos",
+      nav_about: "Sobre Nosotros",
+      nav_contact: "Contacto",
+      lang_btn: "FR",
+      // Footer
+      footer_desc: "Su socio de confianza en la importación y exportación global. Especializados en productos frescos de España para los mercados mundiales.",
+      footer_links: "Enlaces rápidos",
+      footer_contact: "Contáctenos",
+      footer_address: "LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONA",
+      footer_phone: "+34 667 91 80 18",
+      footer_phone_company: "+34 667 91 80 18",
+      footer_phone_commercial: "+34 624 18 32 01",
+      footer_email: "info.medssimport@gmail.com",
+      footer_copyright: `© ${new Date().getFullYear()} MED SS IMPORT & EXPORT. Todos los derechos reservados.`,
+      // Hero
+      hero_title: "Productos Españoles Premium para el Mercado Global",
+      hero_desc: "Su socio principal para la exportación de productos frescos españoles. Desde nuestras instalaciones en Sevilla y Barcelona, MED SS garantiza calidad, fiabilidad y entrega sin problemas en todo el mundo.",
+      hero_btn: "Ver Nuestros Productos",
+      hero_countries: "Países Servidos",
+      hero_experience: "Años de Experiencia",
+      hero_ontime: "Entrega Puntual",
+      // About
+      about_title: "Nuestra Historia: Excelencia Española en Comercio Global",
+      about_desc: "MED SS IMPORT & EXPORT se especializa en conectar la excelencia agrícola española con los mercados globales. Con sede en Sevilla y operaciones en Mercabarna de Barcelona, estamos comprometidos con la calidad y la fiabilidad.",
+      about_mission_title: "Nuestra Misión",
+      about_mission_1: "Exportar los mejores productos frescos de España a empresas de todo el mundo que exigen calidad excepcional, creando valor sostenible para los productores españoles y socios internacionales.",
+      about_mission_2: "Creemos que los productos frescos españoles representan calidad y tradición que deberían estar al alcance de empresas de todo el mundo.",
+      about_values_title: "Nuestros Valores Fundamentales",
+      about_value_quality: "Calidad Primero:",
+      about_value_quality_desc: " Sin comprometer los estándares que definen productos excepcionales",
+      about_value_sustain: "Sostenibilidad:",
+      about_value_sustain_desc: " Apoyando la agricultura ecológica y prácticas comerciales responsables",
+      about_value_partner: "Asociación:",
+      about_value_partner_desc: " Construir relaciones a largo plazo basadas en la confianza y el éxito mutuo",
+      about_value_innov: "Innovación:",
+      about_value_innov_desc: " Mejorar continuamente nuestros procesos y adoptar nuevas tecnologías",
+      // Products
+      products_title: "Productos Premium para el Comercio Global",
+      products_desc: "Nuestro extenso portafolio de productos abarca frutas frescas, verduras y mariscos provenientes de las mejores regiones del mundo, asegurando disponibilidad durante todo el año y calidad constante para sus necesidades de importación/exportación.",
+      products_fruits: "Frutas Premium",
+      products_fruits_desc: "Manzanas frescas, naranjas, uvas y frutas tropicales",
+      products_veggies: "Verduras Frescas",
+      products_veggies_desc: "Zanahorias, brócoli, tomates y hojas verdes",
+      products_ops: "Operaciones Globales",
+      products_ops_desc: "Cadena de suministro completa del campo al mercado",
+      products_grapes: "Uvas de Mesa",
+      products_greens: "Hojas Verdes",
+      products_tropical: "Frutas Tropicales",
+      // Contact
+      contact_title: "Póngase en Contacto Con Nosotros",
+      contact_intro: "¿Listo para discutir sus necesidades de productos frescos españoles? Nuestro equipo de expertos está aquí para proporcionar soluciones que cumplan con sus requisitos de calidad, volumen y entrega.",
+      contact_info_title: "Información de Contacto",
+      contact_info_desc: "Nuestro equipo está disponible para discutir sus necesidades de productos frescos, responder preguntas sobre nuestra logística y brindar orientación experta sobre productos agrícolas españoles.",
+      contact_phone_title: "Teléfono",
+      contact_phone: "+34 667 91 80 18",
+      contact_commercial_title: "Comercial",
+      contact_commercial_phone: "+34 624 18 32 01",
+      contact_phone_hours: "Lunes a Viernes: 8:00 AM - 6:00 PM",
+      contact_email_title: "Correo Electrónico",
+      contact_email: "info.medssimport@gmail.com",
+      contact_email_response: "Respondemos dentro de las 24 horas",
+      contact_hq_title: "Oficina Central",
+      contact_hq_address: "LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONA",
+      contact_warehouse_title: "Almacén",
+      contact_fiscal_title: "Dirección Fiscal",
+      contact_fiscal_address: "CALLE PUERTO 17 B SEVILLA 41020",
+      // Company Information
+      company_info_title: "Información de la Empresa",
+      company_name_label: "Empresa",
+      company_name: "MED SS IMPORT & EXPORT",
+      fiscal_address_label: "Dirección Fiscal",
+      warehouse_address_label: "Dirección Almacén",
+      tax_id_label: "Identificación Fiscal",
+      tax_id: "NIF / B06934541",
+      bank_account_label: "Cuenta Bancaria",
+      bank_account: "ES7600810215250001949495",
+      swift_label: "SWIFT/BIC",
+      swift_code: "BSABESBBXXX",
+      email_label: "Correo Electrónico",
+      company_phone_label: "Teléfono Empresa",
+      commercial_phone_label: "Teléfono Comercial",
+      // Featured Products Section
+      featured_title: "Productos Españoles Premium para el Comercio Global",
+      featured_desc: "Surtido y entregado por 🚢 MED SS IMPORT & EXPORT — su socio de confianza para el comercio de productos frescos españoles en todo el mundo.",
+      featured_card1_title: "Transporte de Contenedores",
+      featured_card2_title: "Logística de Productos Frescos",
+      featured_card3_title: "Soluciones de Cadena de Frío",
+      featured_card4_title: "Variedad de Productos Frescos",
+      featured_card5_title: "Productos Listos para la Venta",
+      featured_card6_title: "Control de Calidad",
+      featured_card7_title: "Inventario & Entrega",
+      featured_btn: "Ver Todos los Productos",
+      // Product Card Titles 6 Descriptions
+      card_dried_fruits_title: "Frutas Secas",
+      card_citrus_fruits_title: "Cítricos",
+      card_melons_title: "Melones",
+      card_apples_pears_title: "Manzanas & Peras",
+      card_apple_warehouse_title: "Almacén de Manzanas",
+      card_bulk_berries_title: "Bayas a Granel"
+    },
     fr: {
-      brand: "Global road",
+      brand: "MED SS IMPORT & EXPORT",
       nav_home: "Accueil",
       nav_products: "Produits",
       nav_about: "À propos",
@@ -167,10 +291,12 @@ import { withBase } from '../utils/basePath';
       footer_desc: "Votre partenaire de confiance en import & export mondial. Connecter le monde avec une logistique fiable et des produits frais.",
       footer_links: "Liens rapides",
       footer_contact: "Contactez-nous",
-      footer_address: "Rue 36 Ibn tachfine agdal rabat",
-      footer_phone: "+212 600-000000",
-      footer_email: "contact@globalroad.com",
-      footer_copyright: `© ${new Date().getFullYear()} Global road. Tous droits réservés.`,
+      footer_address: "LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONE",
+      footer_phone: "+34 667 91 80 18",
+      footer_phone_company: "+34 667 91 80 18",
+      footer_phone_commercial: "+34 624 18 32 01",
+footer_email: "info.medssimport@gmail.com",
+      footer_copyright: `© ${new Date().getFullYear()} MED SS IMPORT & EXPORT. Tous droits réservés.`,
       // Hero
       hero_title: "Produits premium pour le commerce mondial",
       hero_desc: "Votre partenaire privilégié pour l'import/export et la logistique mondiale. Du port au port, Global road garantit qualité, fiabilité et livraison sans faille à chaque expédition.",
@@ -211,16 +337,36 @@ import { withBase } from '../utils/basePath';
       contact_info_title: "Informations de contact",
       contact_info_desc: "Notre équipe est disponible pour discuter de vos besoins en produits frais, répondre à vos questions sur notre logistique et vous fournir des conseils d'experts sur l'approvisionnement international.",
       contact_phone_title: "Téléphone",
-      contact_phone: "+212 600-000000",
+      contact_phone: "+34 667 91 80 18",
+      contact_commercial_title: "Commercial",
+      contact_commercial_phone: "+34 624 18 32 01",
       contact_phone_hours: "Lundi - Vendredi : 8h00 - 18h00",
       contact_email_title: "E-mail",
       contact_email: "contact@globalroad.com",
       contact_email_response: "Nous répondons sous 24 heures",
       contact_hq_title: "Siège social",
-      contact_hq_address: "Rue 36 Ibn tachfine agdal rabat",
+      contact_hq_address: "LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONE",
+      contact_warehouse_title: "Entrepôt",
+      contact_fiscal_title: "Adresse Fiscale",
+      contact_fiscal_address: "CALLE PUERTO 17 B SEVILLA 41020",
+      // Company Information
+      company_info_title: "Informations de l'Entreprise",
+      company_name_label: "Entreprise",
+      company_name: "MED SS IMPORT & EXPORT",
+      fiscal_address_label: "Adresse Fiscale",
+      warehouse_address_label: "Adresse Entrepôt",
+      tax_id_label: "Identification Fiscale",
+      tax_id: "NIF / B06934541",
+      bank_account_label: "Compte Bancaire",
+      bank_account: "ES7600810215250001949495",
+      swift_label: "SWIFT/BIC",
+      swift_code: "BSABESBBXXX",
+      email_label: "Email",
+      company_phone_label: "Téléphone Entreprise",
+      commercial_phone_label: "Téléphone Commercial",
       // Featured Products Section
       featured_title: "Produits premium pour le commerce mondial",
-      featured_desc: "Sourcés et livrés par 🚢 Global road — votre partenaire de confiance pour la logistique d'import/export et les produits frais dans le monde entier.",
+      featured_desc: "Sourcés et livrés par 🚢 MED SS IMPORT & EXPORT — votre partenaire de confiance pour la logistique d'import/export et les produits frais dans le monde entier.",
       featured_card1_title: "Transport de conteneurs",
       featured_card2_title: "Logistique des produits frais",
       featured_card3_title: "Solutions chaîne du froid",
@@ -255,13 +401,20 @@ import { withBase } from '../utils/basePath';
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const lang = localStorage.getItem('lang') || 'fr';
+    const lang = localStorage.getItem('lang') || 'en';
     setLanguage(lang);
   });
 
   window.toggleLang = function() {
     const current = localStorage.getItem('lang') || 'en';
-    const next = current === 'en' ? 'fr' : 'en';
+    let next;
+    if (current === 'en') {
+      next = 'es';
+    } else if (current === 'es') {
+      next = 'fr';
+    } else {
+      next = 'en';
+    }
     setLanguage(next);
   };
 
