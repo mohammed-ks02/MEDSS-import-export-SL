@@ -1,0 +1,106 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LanguageWrapper from '../components/LanguageWrapper';
+import { SEO } from 'astro-seo';
+import type { Props as SEOProps } from 'astro-seo';
+import { DEFAULT_LANGUAGE } from '../utils/serverLanguage';
+
+// Define the props that each page can pass to the layout
+export interface Props {
+  title: string;
+  description: string;
+  seo?: SEOProps;
+}
+
+const { title, description, seo } = Astro.props;
+
+// In static mode, we use the default language and let client-side handle detection
+const detectedLanguage = DEFAULT_LANGUAGE;
+---
+
+<!DOCTYPE html>
+<html lang={detectedLanguage}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- SEO Component -->
+    <SEO
+      title={title}
+      description={description}
+      canonical={Astro.url.href}
+      openGraph={{
+        basic: {
+          title: title,
+          type: 'website',
+          image: new URL('/images/social-card.jpg', Astro.url).href,
+        },
+      }}
+      twitter={{
+        creator: '@medssimport',
+        site: '@medssimport',
+        card: 'summary_large_image',
+      }}
+      {...seo}
+    />
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" />
+    
+    <!-- Schema.org structured data for Organization -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "MED SS IMPORT & EXPORT",
+        "url": "https://www.medssimport.com",
+        "logo": "https://www.medssimport.com/logo.png",
+        "description": "Professional import-export and logistics for Spanish fresh produce worldwide",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+34 954 000 000",
+          "contactType": "sales",
+          "email": "info.medssimport@gmail.com"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Puerto 17 B",
+          "postalCode": "41020",
+          "addressLocality": "Sevilla",
+          "addressCountry": "Spain"
+        },
+        "additionalProperty": {
+          "@type": "PropertyValue",
+          "name": "Warehouse",
+          "value": "Longitudinal 5 Nº 83, Mercabarna, 08040 Barcelona, Spain"
+        }
+      }
+    </script>
+    
+    <!-- Preload language to prevent content flicker -->
+    <script is:inline define:vars={{ detectedLanguage }}>
+      // Set language in localStorage before React components hydrate
+      if (typeof Storage !== 'undefined') {
+        const currentLang = localStorage.getItem('language');
+        if (!currentLang) {
+          localStorage.setItem('language', detectedLanguage);
+        }
+      }
+      
+      // Set language cookie for persistence
+      document.cookie = `language=${detectedLanguage}; path=/; max-age=${60 * 60 * 24 * 30}; SameSite=Strict`;
+    </script>
+  </head>
+  <body class="text-neutral-800 antialiased">
+    <Header />
+    <main>
+      <LanguageWrapper client:load initialLanguage={detectedLanguage}>
+        <slot />
+      </LanguageWrapper>
+    </main>
+    <Footer />
+  </body>
+</html>

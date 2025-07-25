@@ -1,0 +1,559 @@
+---
+// Header component for Global road
+import { withBase } from '../utils/basePath';
+---
+
+<header class="bg-white shadow-lg sticky top-0 z-50 py-2">
+  <nav class="container py-1">
+    <div class="flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href={withBase('/')} class="text-2xl font-bold text-green-800 hover:text-green-600 transition-colors flex items-center">
+          <img src={withBase('/logo.png')} alt="MED SS IMPORT & EXPORT Logo" class="h-6 w-auto md:h-8 lg:h-10 object-contain transition-all duration-200">
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href={withBase('/')} class="text-gray-700 hover:text-green-600 font-medium transition-colors" data-i18n="nav_home">
+          Home
+        </a>
+        <a href={withBase('/products')} class="text-gray-700 hover:text-green-600 font-medium transition-colors" data-i18n="nav_products">
+          Products
+        </a>
+        <a href={withBase('/about')} class="text-gray-700 hover:text-green-600 font-medium transition-colors" data-i18n="nav_about">
+          About Us
+        </a>
+        <a href={withBase('/contact')} class="text-gray-700 hover:text-green-600 font-medium transition-colors" data-i18n="nav_contact">
+          Contact
+        </a>
+        <div class="relative ml-4">
+          <button id="lang-toggle" class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-green-100 text-green-800 font-semibold transition flex items-center space-x-2">
+            <span id="current-lang">ES</span>
+            <svg class="w-4 h-4 transition-transform" id="dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="lang-dropdown" class="absolute right-0 mt-2 w-16 bg-white border border-gray-200 rounded-lg shadow-lg z-50 hidden">
+            <button class="lang-option w-full px-4 py-2 text-left hover:bg-green-50 text-green-800 font-semibold" data-lang="en">EN</button>
+            <button class="lang-option w-full px-4 py-2 text-left hover:bg-green-50 text-green-800 font-semibold" data-lang="es">ES</button>
+            <button class="lang-option w-full px-4 py-2 text-left hover:bg-green-50 text-green-800 font-semibold" data-lang="fr">FR</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="lg:hidden">
+        <button 
+          type="button" 
+          class="text-gray-700 hover:text-green-600 focus:outline-none focus:text-green-600"
+          aria-label="Toggle mobile menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          id="mobile-menu-toggle"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4">
+      <div class="flex flex-col space-y-4">
+        <a href={withBase('/')} class="text-gray-700 hover:text-green-600 font-medium py-2" data-i18n="nav_home">
+          Home
+        </a>
+        <a href={withBase('/products')} class="text-gray-700 hover:text-green-600 font-medium py-2" data-i18n="nav_products">
+          Products
+        </a>
+        <a href={withBase('/about')} class="text-gray-700 hover:text-green-600 font-medium py-2" data-i18n="nav_about">
+          About Us
+        </a>
+        <a href={withBase('/contact')} class="text-gray-700 hover:text-green-600 font-medium py-2" data-i18n="nav_contact">
+          Contact
+        </a>
+        <div class="relative mt-2">
+          <button id="lang-toggle-mobile" class="w-full px-4 py-2 rounded-lg bg-gray-100 hover:bg-green-100 text-green-800 font-semibold transition flex items-center justify-center space-x-2">
+            <span id="current-lang-mobile">ES</span>
+            <svg class="w-4 h-4 transition-transform" id="dropdown-arrow-mobile" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="lang-dropdown-mobile" class="absolute left-0 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50 hidden">
+            <button class="lang-option-mobile w-full px-4 py-2 text-center hover:bg-green-50 text-green-800 font-semibold" data-lang="en">EN</button>
+            <button class="lang-option-mobile w-full px-4 py-2 text-center hover:bg-green-50 text-green-800 font-semibold" data-lang="es">ES</button>
+            <button class="lang-option-mobile w-full px-4 py-2 text-center hover:bg-green-50 text-green-800 font-semibold" data-lang="fr">FR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  const translations = {
+    en: {
+      brand: "MED SS IMPORT & EXPORT",
+      nav_home: "Home",
+      nav_products: "Products",
+      nav_about: "About Us",
+      nav_contact: "Contact",
+      lang_btn: "ES",
+      // Footer
+      footer_desc: "Your trusted partner in global import & export. Specializing in fresh produce from Spain to worldwide markets.",
+      footer_links: "Quick Links",
+      footer_contact: "Contact Us",
+      footer_address: "LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONA",
+      footer_phone: "+34 667 91 80 18",
+      footer_phone_company: "+34 667 91 80 18",
+      footer_phone_commercial: "+34 624 18 32 01",
+      footer_email: "info.medssimport@gmail.com",
+      footer_copyright: `© ${new Date().getFullYear()} MED SS IMPORT & EXPORT. All rights reserved.`,
+      // Hero
+      hero_title: "Premium Spanish Produce for Global Markets",
+      hero_desc: "Your premier partner for Spanish fresh produce export. From our facilities in Sevilla and Barcelona, MED SS ensures quality, reliability, and seamless delivery worldwide.",
+      hero_btn: "View Our Products",
+      hero_countries: "Countries Served",
+      hero_experience: "Years Experience",
+      hero_ontime: "On-Time Delivery",
+      // About
+      about_title: "Our Story: Spanish Excellence in Global Trade",
+      about_desc: "MED SS IMPORT & EXPORT specializes in connecting Spanish agricultural excellence with global markets. Based in Sevilla with operations in Barcelona's Mercabarna, we are committed to quality and reliability.",
+      about_mission_title: "Our Mission",
+      about_mission_1: "To export Spain's finest fresh produce to businesses worldwide that demand exceptional quality, creating sustainable value for Spanish growers and international partners.",
+      about_mission_2: "We believe Spanish fresh produce represents quality and tradition that should be accessible to businesses worldwide.",
+      about_values_title: "Our Core Values",
+      about_value_quality: "Quality First:",
+      about_value_quality_desc: " Never compromising on the standards that define exceptional produce",
+      about_value_sustain: "Sustainability:",
+      about_value_sustain_desc: " Supporting eco-friendly farming and responsible trade practices",
+      about_value_partner: "Partnership:",
+      about_value_partner_desc: " Building long-term relationships based on trust and mutual success",
+      about_value_innov: "Innovation:",
+      about_value_innov_desc: " Continuously improving our processes and embracing new technologies",
+      // Products
+      products_title: "Premium Products for Global Trade",
+      products_desc: "Our extensive product portfolio spans fresh fruits, vegetables, and seafood sourced from the world's finest regions, ensuring year-round availability and consistent quality for your import/export needs.",
+      products_fruits: "Premium Fruits",
+      products_fruits_desc: "Fresh apples, oranges, grapes, and tropical fruits",
+      products_veggies: "Fresh Vegetables",
+      products_veggies_desc: "Carrots, broccoli, tomatoes, and leafy greens",
+      products_ops: "Global Operations",
+      products_ops_desc: "Complete supply chain from farm to market",
+      products_grapes: "Table Grapes",
+      products_greens: "Leafy Greens",
+      products_tropical: "Tropical Fruits",
+      // Contact
+      contact_title: "Get In Touch With Us",
+      contact_intro: "Ready to discuss your Spanish produce sourcing needs? Our team of experts is here to provide solutions that meet your quality, volume, and delivery requirements.",
+      contact_info_title: "Contact Information",
+      contact_info_desc: "Our team is available to discuss your fresh produce needs, answer questions about our logistics, and provide expert guidance on Spanish agricultural products.",
+      contact_phone_title: "Phone",
+      contact_phone: "+34 667 91 80 18",
+      contact_commercial_title: "Commercial",
+      contact_commercial_phone: "+34 624 18 32 01",
+      contact_phone_hours: "Monday - Friday: 8:00 AM - 6:00 PM",
+      contact_email_title: "Email",
+      contact_email: "info.medssimport@gmail.com",
+      contact_email_response: "We respond within 24 hours",
+      contact_hq_title: "Headquarters",
+      contact_hq_address: "LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONA",
+      contact_warehouse_title: "Warehouse",
+      contact_fiscal_title: "Fiscal Address",
+      contact_fiscal_address: "CALLE PUERTO 17 B SEVILLA 41020",
+      // Company Information
+      company_info_title: "Company Information",
+      company_name_label: "Company",
+      company_name: "MED SS IMPORT & EXPORT",
+      fiscal_address_label: "Fiscal Address",
+      warehouse_address_label: "Warehouse Address",
+      tax_id_label: "Tax ID",
+      tax_id: "NIF / B06934541",
+      bank_account_label: "Bank Account",
+      bank_account: "ES7600810215250001949495",
+      swift_label: "SWIFT/BIC",
+      swift_code: "BSABESBBXXX",
+      email_label: "Email",
+      company_phone_label: "Company Phone",
+      commercial_phone_label: "Commercial Phone",
+      // Featured Products Section
+      featured_title: "Premium Spanish Products for Global Trade",
+      featured_desc: "Sourced and delivered by 🚢 MED SS IMPORT & EXPORT — your trusted partner for Spanish fresh produce worldwide.",
+      featured_card1_title: "Container Transport",
+      featured_card2_title: "Fresh Produce Logistics",
+      featured_card3_title: "Cold Chain Solutions",
+      featured_card4_title: "Fresh Produce Variety",
+      featured_card5_title: "Retail-Ready Produce",
+      featured_card6_title: "Quality Control",
+      featured_card7_title: "Inventory & Delivery",
+      featured_btn: "View All Products",
+      // Product Card Titles & Descriptions
+      card_dried_fruits_title: "Dried Fruits",
+      card_citrus_fruits_title: "Citrus Fruits",
+      card_melons_title: "Melons",
+      card_apples_pears_title: "Apples & Pears",
+      card_apple_warehouse_title: "Apple Warehouse",
+      card_bulk_berries_title: "Bulk Berries"
+    },
+    es: {
+      brand: "MED SS IMPORT & EXPORT",
+      nav_home: "Inicio",
+      nav_products: "Productos",
+      nav_about: "Sobre Nosotros",
+      nav_contact: "Contacto",
+      lang_btn: "FR",
+      // Footer
+      footer_desc: "Su socio de confianza en la importación y exportación global. Especializados en productos frescos de España para los mercados mundiales.",
+      footer_links: "Enlaces rápidos",
+      footer_contact: "Contáctenos",
+      footer_address: "LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONA",
+      footer_phone: "+34 667 91 80 18",
+      footer_phone_company: "+34 667 91 80 18",
+      footer_phone_commercial: "+34 624 18 32 01",
+      footer_email: "info.medssimport@gmail.com",
+      footer_copyright: `© ${new Date().getFullYear()} MED SS IMPORT & EXPORT. Todos los derechos reservados.`,
+      // Hero
+      hero_title: "Productos Españoles Premium para el Mercado Global",
+      hero_desc: "Su socio principal para la exportación de productos frescos españoles. Desde nuestras instalaciones en Sevilla y Barcelona, MED SS garantiza calidad, fiabilidad y entrega sin problemas en todo el mundo.",
+      hero_btn: "Ver Nuestros Productos",
+      hero_countries: "Países Servidos",
+      hero_experience: "Años de Experiencia",
+      hero_ontime: "Entrega Puntual",
+      // About
+      about_title: "Nuestra Historia: Excelencia Española en Comercio Global",
+      about_desc: "MED SS IMPORT & EXPORT se especializa en conectar la excelencia agrícola española con los mercados globales. Con sede en Sevilla y operaciones en Mercabarna de Barcelona, estamos comprometidos con la calidad y la fiabilidad.",
+      about_mission_title: "Nuestra Misión",
+      about_mission_1: "Exportar los mejores productos frescos de España a empresas de todo el mundo que exigen calidad excepcional, creando valor sostenible para los productores españoles y socios internacionales.",
+      about_mission_2: "Creemos que los productos frescos españoles representan calidad y tradición que deberían estar al alcance de empresas de todo el mundo.",
+      about_values_title: "Nuestros Valores Fundamentales",
+      about_value_quality: "Calidad Primero:",
+      about_value_quality_desc: " Sin comprometer los estándares que definen productos excepcionales",
+      about_value_sustain: "Sostenibilidad:",
+      about_value_sustain_desc: " Apoyando la agricultura ecológica y prácticas comerciales responsables",
+      about_value_partner: "Asociación:",
+      about_value_partner_desc: " Construir relaciones a largo plazo basadas en la confianza y el éxito mutuo",
+      about_value_innov: "Innovación:",
+      about_value_innov_desc: " Mejorar continuamente nuestros procesos y adoptar nuevas tecnologías",
+      // Products
+      products_title: "Productos Premium para el Comercio Global",
+      products_desc: "Nuestro extenso portafolio de productos abarca frutas frescas, verduras y mariscos provenientes de las mejores regiones del mundo, asegurando disponibilidad durante todo el año y calidad constante para sus necesidades de importación/exportación.",
+      products_fruits: "Frutas Premium",
+      products_fruits_desc: "Manzanas frescas, naranjas, uvas y frutas tropicales",
+      products_veggies: "Verduras Frescas",
+      products_veggies_desc: "Zanahorias, brócoli, tomates y hojas verdes",
+      products_ops: "Operaciones Globales",
+      products_ops_desc: "Cadena de suministro completa del campo al mercado",
+      products_grapes: "Uvas de Mesa",
+      products_greens: "Hojas Verdes",
+      products_tropical: "Frutas Tropicales",
+      // Contact
+      contact_title: "Póngase en Contacto Con Nosotros",
+      contact_intro: "¿Listo para discutir sus necesidades de productos frescos españoles? Nuestro equipo de expertos está aquí para proporcionar soluciones que cumplan con sus requisitos de calidad, volumen y entrega.",
+      contact_info_title: "Información de Contacto",
+      contact_info_desc: "Nuestro equipo está disponible para discutir sus necesidades de productos frescos, responder preguntas sobre nuestra logística y brindar orientación experta sobre productos agrícolas españoles.",
+      contact_phone_title: "Teléfono",
+      contact_phone: "+34 667 91 80 18",
+      contact_commercial_title: "Comercial",
+      contact_commercial_phone: "+34 624 18 32 01",
+      contact_phone_hours: "Lunes a Viernes: 8:00 AM - 6:00 PM",
+      contact_email_title: "Correo Electrónico",
+      contact_email: "info.medssimport@gmail.com",
+      contact_email_response: "Respondemos dentro de las 24 horas",
+      contact_hq_title: "Oficina Central",
+      contact_hq_address: "LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONA",
+      contact_warehouse_title: "Almacén",
+      contact_fiscal_title: "Dirección Fiscal",
+      contact_fiscal_address: "CALLE PUERTO 17 B SEVILLA 41020",
+      // Company Information
+      company_info_title: "Información de la Empresa",
+      company_name_label: "Empresa",
+      company_name: "MED SS IMPORT & EXPORT",
+      fiscal_address_label: "Dirección Fiscal",
+      warehouse_address_label: "Dirección Almacén",
+      tax_id_label: "Identificación Fiscal",
+      tax_id: "NIF / B06934541",
+      bank_account_label: "Cuenta Bancaria",
+      bank_account: "ES7600810215250001949495",
+      swift_label: "SWIFT/BIC",
+      swift_code: "BSABESBBXXX",
+      email_label: "Correo Electrónico",
+      company_phone_label: "Teléfono Empresa",
+      commercial_phone_label: "Teléfono Comercial",
+      // Featured Products Section
+      featured_title: "Productos Españoles Premium para el Comercio Global",
+      featured_desc: "Surtido y entregado por 🚢 MED SS IMPORT & EXPORT — su socio de confianza para el comercio de productos frescos españoles en todo el mundo.",
+      featured_card1_title: "Transporte de Contenedores",
+      featured_card2_title: "Logística de Productos Frescos",
+      featured_card3_title: "Soluciones de Cadena de Frío",
+      featured_card4_title: "Variedad de Productos Frescos",
+      featured_card5_title: "Productos Listos para la Venta",
+      featured_card6_title: "Control de Calidad",
+      featured_card7_title: "Inventario & Entrega",
+      featured_btn: "Ver Todos los Productos",
+      // Product Card Titles 6 Descriptions
+      card_dried_fruits_title: "Frutas Secas",
+      card_citrus_fruits_title: "Cítricos",
+      card_melons_title: "Melones",
+      card_apples_pears_title: "Manzanas & Peras",
+      card_apple_warehouse_title: "Almacén de Manzanas",
+      card_bulk_berries_title: "Bayas a Granel"
+    },
+    fr: {
+      brand: "MED SS IMPORT & EXPORT",
+      nav_home: "Accueil",
+      nav_products: "Produits",
+      nav_about: "À propos",
+      nav_contact: "Contact",
+      lang_btn: "EN",
+      // Footer
+      footer_desc: "Votre partenaire de confiance en import & export mondial. Connecter le monde avec une logistique fiable et des produits frais.",
+      footer_links: "Liens rapides",
+      footer_contact: "Contactez-nous",
+      footer_address: "LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONE",
+      footer_phone: "+34 667 91 80 18",
+      footer_phone_company: "+34 667 91 80 18",
+      footer_phone_commercial: "+34 624 18 32 01",
+footer_email: "info.medssimport@gmail.com",
+      footer_copyright: `© ${new Date().getFullYear()} MED SS IMPORT & EXPORT. Tous droits réservés.`,
+      // Hero
+      hero_title: "Produits premium pour le commerce mondial",
+      hero_desc: "Votre partenaire privilégié pour l'import/export et la logistique mondiale. Du port au port, Global road garantit qualité, fiabilité et livraison sans faille à chaque expédition.",
+      hero_btn: "Voir nos produits",
+      hero_countries: "Pays desservis",
+      hero_experience: "Années d'expérience",
+      hero_ontime: "Livraison à temps",
+      // About
+      about_title: "Notre histoire : Des années d'excellence en matière de commerce mondial",
+      about_desc: "D'une petite entreprise à un leader mondial de la logistique import/export, notre parcours a été guidé par un engagement indéfectible envers la qualité, la fiabilité et la construction de partenariats durables.",
+      about_mission_title: "Notre mission",
+      about_mission_1: "Relier les meilleures fermes du monde aux entreprises exigeant une qualité exceptionnelle, créant une valeur durable pour les producteurs, partenaires et consommateurs tout en promouvant des pratiques agricoles responsables à l'échelle mondiale.",
+      about_mission_2: "Nous croyons que des produits frais et de haute qualité doivent être accessibles aux entreprises du monde entier, quelles que soient les frontières géographiques ou les limitations saisonnières.",
+      about_values_title: "Nos valeurs fondamentales",
+      about_value_quality: "Qualité avant tout :",
+      about_value_quality_desc: " Ne jamais transiger sur les standards qui définissent des produits d'exception",
+      about_value_sustain: "Durabilité :",
+      about_value_sustain_desc: " Soutenir l'agriculture écologique et des pratiques commerciales responsables",
+      about_value_partner: "Partenariat :",
+      about_value_partner_desc: " Construire des relations à long terme basées sur la confiance et le succès mutuel",
+      about_value_innov: "Innovation :",
+      about_value_innov_desc: " Améliorer continuellement nos processus et adopter de nouvelles technologies",
+      // Products
+      products_title: "Produits premium pour le commerce mondial",
+      products_desc: "Notre large gamme de produits comprend des fruits frais, des légumes et des produits de la mer provenant des meilleures régions du monde, garantissant une disponibilité toute l'année et une qualité constante pour vos besoins d'import/export.",
+      products_fruits: "Fruits premium",
+      products_fruits_desc: "Pommes, oranges, raisins et fruits tropicaux frais",
+      products_veggies: "Légumes frais",
+      products_veggies_desc: "Carottes, brocolis, tomates et légumes-feuilles",
+      products_ops: "Opérations globales",
+      products_ops_desc: "Chaîne d'approvisionnement complète du champ au marché",
+      products_grapes: "Raisins de table",
+      products_greens: "Légumes-feuilles",
+      products_tropical: "Fruits tropicaux",
+      // Contact
+      contact_title: "Contactez-nous",
+      contact_intro: "Prêt à discuter de vos besoins en approvisionnement ou en logistique ? Notre équipe d'experts est là pour vous proposer des solutions adaptées à vos exigences de qualité, de volume et de livraison.",
+      contact_info_title: "Informations de contact",
+      contact_info_desc: "Notre équipe est disponible pour discuter de vos besoins en produits frais, répondre à vos questions sur notre logistique et vous fournir des conseils d'experts sur l'approvisionnement international.",
+      contact_phone_title: "Téléphone",
+      contact_phone: "+34 667 91 80 18",
+      contact_commercial_title: "Commercial",
+      contact_commercial_phone: "+34 624 18 32 01",
+      contact_phone_hours: "Lundi - Vendredi : 8h00 - 18h00",
+      contact_email_title: "E-mail",
+      contact_email: "contact@globalroad.com",
+      contact_email_response: "Nous répondons sous 24 heures",
+      contact_hq_title: "Siège social",
+      contact_hq_address: "LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONE",
+      contact_warehouse_title: "Entrepôt",
+      contact_fiscal_title: "Adresse Fiscale",
+      contact_fiscal_address: "CALLE PUERTO 17 B SEVILLA 41020",
+      // Company Information
+      company_info_title: "Informations de l'Entreprise",
+      company_name_label: "Entreprise",
+      company_name: "MED SS IMPORT & EXPORT",
+      fiscal_address_label: "Adresse Fiscale",
+      warehouse_address_label: "Adresse Entrepôt",
+      tax_id_label: "Identification Fiscale",
+      tax_id: "NIF / B06934541",
+      bank_account_label: "Compte Bancaire",
+      bank_account: "ES7600810215250001949495",
+      swift_label: "SWIFT/BIC",
+      swift_code: "BSABESBBXXX",
+      email_label: "Email",
+      company_phone_label: "Téléphone Entreprise",
+      commercial_phone_label: "Téléphone Commercial",
+      // Featured Products Section
+      featured_title: "Produits premium pour le commerce mondial",
+      featured_desc: "Sourcés et livrés par 🚢 MED SS IMPORT & EXPORT — votre partenaire de confiance pour la logistique d'import/export et les produits frais dans le monde entier.",
+      featured_card1_title: "Transport de conteneurs",
+      featured_card2_title: "Logistique des produits frais",
+      featured_card3_title: "Solutions chaîne du froid",
+      featured_card4_title: "Variété de produits frais",
+      featured_card5_title: "Produits prêts à la vente",
+      featured_card6_title: "Contrôle qualité",
+      featured_card7_title: "Inventaire & Livraison",
+      featured_btn: "Voir tous les produits",
+      // Product Card Titles & Descriptions
+      card_dried_fruits_title: "Fruits secs",
+      card_citrus_fruits_title: "Agrumes",
+      card_melons_title: "Melons",
+      card_apples_pears_title: "Pommes & Poires",
+      card_apple_warehouse_title: "Entrepôt de pommes",
+      card_bulk_berries_title: "Baies en vrac"
+    }
+  };
+
+  // Helper function to get current language abbreviation
+  function getCurrentLanguage() {
+    const lang = localStorage.getItem('lang') || 'en';
+    return lang.toUpperCase();
+  }
+
+  // Helper function to change language
+  function changeLanguage(lng) {
+    const normalizedLang = lng.toLowerCase();
+    setLanguage(normalizedLang);
+    updateLanguageDisplay();
+  }
+
+  function setLanguage(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+    localStorage.setItem('lang', lang);
+  }
+
+  function updateLanguageDisplay() {
+    const currentLang = getCurrentLanguage();
+    
+    // Update desktop language display
+    const currentLangSpan = document.getElementById('current-lang');
+    if (currentLangSpan) {
+      currentLangSpan.textContent = currentLang;
+    }
+    
+    // Update mobile language display
+    const currentLangMobileSpan = document.getElementById('current-lang-mobile');
+    if (currentLangMobileSpan) {
+      currentLangMobileSpan.textContent = currentLang;
+    }
+    
+    // Filter dropdown options to hide current language
+    document.querySelectorAll('.lang-option, .lang-option-mobile').forEach(option => {
+      const optionLang = option.getAttribute('data-lang').toUpperCase();
+      if (optionLang === currentLang) {
+        option.style.display = 'none';
+      } else {
+        option.style.display = 'block';
+      }
+    });
+  }
+
+  function toggleDropdown(dropdownId, arrowId) {
+    const dropdown = document.getElementById(dropdownId);
+    const arrow = document.getElementById(arrowId);
+    
+    if (dropdown && arrow) {
+      const isHidden = dropdown.classList.contains('hidden');
+      
+      // Close all dropdowns first
+      document.querySelectorAll('#lang-dropdown, #lang-dropdown-mobile').forEach(d => {
+        d.classList.add('hidden');
+      });
+      document.querySelectorAll('#dropdown-arrow, #dropdown-arrow-mobile').forEach(a => {
+        a.style.transform = 'rotate(0deg)';
+      });
+      
+      if (isHidden) {
+        dropdown.classList.remove('hidden');
+        arrow.style.transform = 'rotate(180deg)';
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const lang = localStorage.getItem('lang') || 'en';
+    setLanguage(lang);
+    updateLanguageDisplay();
+    
+    // Desktop language toggle
+    const langToggle = document.getElementById('lang-toggle');
+    if (langToggle) {
+      langToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDropdown('lang-dropdown', 'dropdown-arrow');
+      });
+    }
+    
+    // Mobile language toggle
+    const langToggleMobile = document.getElementById('lang-toggle-mobile');
+    if (langToggleMobile) {
+      langToggleMobile.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDropdown('lang-dropdown-mobile', 'dropdown-arrow-mobile');
+      });
+    }
+    
+    // Desktop language options
+    document.querySelectorAll('.lang-option').forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const selectedLang = option.getAttribute('data-lang');
+        changeLanguage(selectedLang);
+        document.getElementById('lang-dropdown').classList.add('hidden');
+        document.getElementById('dropdown-arrow').style.transform = 'rotate(0deg)';
+      });
+    });
+    
+    // Mobile language options
+    document.querySelectorAll('.lang-option-mobile').forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const selectedLang = option.getAttribute('data-lang');
+        changeLanguage(selectedLang);
+        document.getElementById('lang-dropdown-mobile').classList.add('hidden');
+        document.getElementById('dropdown-arrow-mobile').style.transform = 'rotate(0deg)';
+      });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+      document.querySelectorAll('#lang-dropdown, #lang-dropdown-mobile').forEach(dropdown => {
+        dropdown.classList.add('hidden');
+      });
+      document.querySelectorAll('#dropdown-arrow, #dropdown-arrow-mobile').forEach(arrow => {
+        arrow.style.transform = 'rotate(0deg)';
+      });
+    });
+  });
+
+  // Keep the old toggleLang function for backwards compatibility
+  window.toggleLang = function() {
+    const current = localStorage.getItem('lang') || 'en';
+    let next;
+    if (current === 'en') {
+      next = 'es';
+    } else if (current === 'es') {
+      next = 'fr';
+    } else {
+      next = 'en';
+    }
+    changeLanguage(next);
+  };
+
+  // Mobile menu toggle
+  const btn = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

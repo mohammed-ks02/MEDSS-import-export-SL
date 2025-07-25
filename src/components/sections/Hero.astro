@@ -1,0 +1,70 @@
+---
+// Hero section component
+import { withBase } from '../../utils/basePath';
+---
+
+<section class="relative section">
+  <div class="container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Left Column - Content -->
+      <div class="text-center lg:text-left">
+        <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6" data-i18n="hero_title">
+          <span class="text-green-600"> MED SS IMPORT & EXPORT</span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-lg" data-i18n="hero_desc">
+          Your premier partner for global import/export and logistics. From port to port, MED SS IMPORT & EXPORT ensures quality, reliability, and seamless delivery in every shipment.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href={withBase('/products')} class="btn-primary text-center" data-i18n="hero_btn">
+            View Our Products
+          </a>
+        </div>
+        
+        <!-- Key Stats -->
+        <div class="grid grid-cols-3 gap-4 mt-12 text-center">
+          <div>
+            <div class="text-2xl font-bold text-green-600">50+</div>
+            <div class="text-sm text-gray-600" data-i18n="hero_countries">Countries Served</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-green-600">25+</div>
+            <div class="text-sm text-gray-600" data-i18n="hero_experience">Years Experience</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-green-600">99%</div>
+            <div class="text-sm text-gray-600" data-i18n="hero_ontime">On-Time Delivery</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - Image Collage -->
+      <div class="relative">
+        <img src={withBase('/9ef17d90-d5be-48d2-95a1-c7069425d869.jpg')} alt="A brightly lit, extensive display of various fresh fruits and vegetables on shelves, including tomatoes, cucumbers, eggplants, bell peppers (red, yellow, green), cauliflower, and ginger. Showcasing the wide variety of fresh produce for import/export." class="rounded-2xl shadow-xl object-cover h-96 w-full" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .icon-bg {
+    background: linear-gradient(135deg, #f3f4f6 60%, #e0e7ff 100%);
+    border-radius: 9999px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin: 0.25rem;
+  }
+  .icon-jump {
+    display: inline-block;
+    animation: icon-jump 1.2s infinite alternate cubic-bezier(.5,1.8,.5,1);
+    transition: filter 0.2s, transform 0.2s;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
+  }
+  @keyframes icon-jump {
+    0% { transform: translateY(0) scale(1); filter: brightness(1); }
+    60% { filter: brightness(1.1); }
+    100% { transform: translateY(-18px) scale(1.08); filter: brightness(1.2); }
+  }
+</style>
