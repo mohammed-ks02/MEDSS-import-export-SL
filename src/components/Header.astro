@@ -272,7 +272,7 @@ import { withBase } from '../utils/basePath';
       featured_card6_title: "Control de Calidad",
       featured_card7_title: "Inventario & Entrega",
       featured_btn: "Ver Todos los Productos",
-      // Product Card Titles 6 Descriptions
+      // Product Card Titles & Descriptions
       card_dried_fruits_title: "Frutas Secas",
       card_citrus_fruits_title: "Cítricos",
       card_melons_title: "Melones",
@@ -384,48 +384,5 @@ footer_email: "info.medssimport@gmail.com",
       card_bulk_berries_title: "Baies en vrac"
     }
   };
-
-  function setLanguage(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (translations[lang][key]) {
-        el.textContent = translations[lang][key];
-      }
-    });
-    // Update both language buttons
-    const btn = document.getElementById('lang-toggle');
-    if (btn) btn.textContent = translations[lang].lang_btn;
-    const btnMobile = document.getElementById('lang-toggle-mobile');
-    if (btnMobile) btnMobile.textContent = translations[lang].lang_btn;
-    localStorage.setItem('lang', lang);
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const lang = localStorage.getItem('lang') || 'en';
-    setLanguage(lang);
-  });
-
-  window.toggleLang = function() {
-    const current = localStorage.getItem('lang') || 'en';
-    let next;
-    if (current === 'en') {
-      next = 'es';
-    } else if (current === 'es') {
-      next = 'fr';
-    } else {
-      next = 'en';
-    }
-    setLanguage(next);
-  };
-
-  // Mobile menu toggle
-  const btn = document.getElementById('mobile-menu-toggle');
-    const menu = document.getElementById('mobile-menu');
-  if (btn && menu) {
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-      menu.classList.toggle('hidden');
-    });
-  }
 </script>
+<script src={withBase('/js/header-lang.js')} defer></script>
