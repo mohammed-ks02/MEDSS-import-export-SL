@@ -36,7 +36,7 @@ const detectedLanguage = DEFAULT_LANGUAGE;
         basic: {
           title: title,
           type: 'website',
-          image: new URL('/images/social-card.jpg', Astro.url).href,
+          image: new URL('/logo.webp', Astro.url).href,
         },
       }}
       twitter={{
@@ -57,7 +57,7 @@ const detectedLanguage = DEFAULT_LANGUAGE;
         "@type": "Organization",
         "name": "MED SS IMPORT & EXPORT",
         "url": "https://www.medssimport.com",
-        "logo": "https://www.medssimport.com/logo.png",
+        "logo": "https://www.medssimport.com/logo.webp",
         "description": "Professional import-export and logistics for Spanish fresh produce worldwide",
         "contactPoint": {
           "@type": "ContactPoint",
@@ -102,5 +102,156 @@ const detectedLanguage = DEFAULT_LANGUAGE;
       </LanguageWrapper>
     </main>
     <Footer />
+      <script>
+// Enhanced Global Translation System
+(function() {
+  'use strict';
+  
+  let currentLanguage = 'es'; // Default to Spanish
+  let translations = {};
+  
+  // Load translations from JSON files
+  async function loadTranslations() {
+    try {
+      const [enRes, esRes, frRes] = await Promise.all([
+        fetch('/src/locales/en/common.json').catch(() => null),
+        fetch('/src/locales/es/common.json').catch(() => null),
+        fetch('/src/locales/fr/common.json').catch(() => null)
+      ]);
+      
+      if (enRes) translations.en = await enRes.json();
+      if (esRes) translations.es = await esRes.json();
+      if (frRes) translations.fr = await frRes.json();
+    } catch (error) {
+      console.warn('Could not load translations:', error);
+      // Fallback translations
+      translations = {
+        en: {
+          nav_home: "Home",
+          nav_products: "Products", 
+          nav_about: "About Us",
+          nav_contact: "Contact"
+        },
+        es: {
+          nav_home: "Inicio",
+          nav_products: "Productos",
+          nav_about: "Sobre Nosotros", 
+          nav_contact: "Contacto"
+        },
+        fr: {
+          nav_home: "Accueil",
+          nav_products: "Produits",
+          nav_about: "À propos",
+          nav_contact: "Contact"
+        }
+      };
+    }
+  }
+  
+  // Apply translations to elements
+  function applyTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      let translatedText = getNestedTranslation(translations[currentLanguage], key);
+      
+      if (translatedText) {
+        element.textContent = translatedText;
+      }
+    });
+  }
+  
+  // Helper function to get nested translation keys
+  function getNestedTranslation(obj, key) {
+    if (!obj) return null;
+    
+    // Handle nested keys like 'why_choose.title'
+    if (key.includes('.')) {
+      const keys = key.split('.');
+      let current = obj;
+      
+      for (const k of keys) {
+        if (current && typeof current === 'object' && k in current) {
+          current = current[k];
+        } else {
+          return null;
+        }
+      }
+      
+      return current;
+    }
+    
+    // Handle simple keys
+    return obj[key] || null;
+  }
+  
+  // Update language display
+  function updateLanguageDisplay() {
+    const langSpans = document.querySelectorAll('#current-lang, #current-lang-mobile');
+    langSpans.forEach(span => {
+      if (span) span.textContent = currentLanguage.toUpperCase();
+    });
+    
+    // Hide current language in dropdown
+    document.querySelectorAll('.lang-option, .lang-option-mobile').forEach(option => {
+      const optionLang = option.getAttribute('data-lang');
+      if (optionLang === currentLanguage) {
+        option.style.display = 'none';
+      } else {
+        option.style.display = 'block';
+      }
+    });
+  }
+  
+  // Change language
+  function changeLanguage(newLang) {
+    if (translations[newLang]) {
+      currentLanguage = newLang;
+      localStorage.setItem('lang', newLang);
+      localStorage.setItem('language', newLang);
+      applyTranslations();
+      updateLanguageDisplay();
+      
+      // Trigger custom event for React components
+      window.dispatchEvent(new CustomEvent('languageChange', { 
+        detail: { language: newLang } 
+      }));
+    }
+  }
+  
+  // Initialize
+  function init() {
+    // Get saved language or default to Spanish
+    const savedLang = localStorage.getItem('lang') || localStorage.getItem('language') || 'es';
+    currentLanguage = savedLang;
+    
+    loadTranslations().then(() => {
+      applyTranslations();
+      updateLanguageDisplay();
+    });
+    
+    // Set up language switchers
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('lang-option') || e.target.classList.contains('lang-option-mobile')) {
+        const newLang = e.target.getAttribute('data-lang');
+        changeLanguage(newLang);
+        
+        // Close dropdown
+        const dropdowns = document.querySelectorAll('#lang-dropdown, #lang-dropdown-mobile');
+        dropdowns.forEach(dropdown => dropdown.classList.add('hidden'));
+      }
+    });
+  }
+  
+  // Start when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  
+  // Expose globally
+  window.changeLanguage = changeLanguage;
+})();
+</script>
   </body>
 </html>

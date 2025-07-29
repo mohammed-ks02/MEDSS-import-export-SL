@@ -25,7 +25,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'en',
+    fallbackLng: 'es',
     defaultNS: 'common',
     ns: ['common'],
     
@@ -89,7 +89,23 @@ export const LanguageProvider = ({ children }) => {
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+    // During SSR or when used outside provider, return fallback
+    const { t, i18n: i18nInstance } = useTranslation('common');
+    const [language, setLanguage] = useState('es'); // Default language
+    
+    const changeLanguage = (newLanguage) => {
+      i18nInstance.changeLanguage(newLanguage);
+      setLanguage(newLanguage);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('lang', newLanguage);
+      }
+    };
+    
+    return {
+      language,
+      changeLanguage,
+      t
+    };
   }
   return context;
 };

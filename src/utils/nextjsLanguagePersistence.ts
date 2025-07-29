@@ -117,7 +117,7 @@ export function setupNextjsLanguagePersistence(
  *   // ... rest of component
  * }
  */
-export function useLanguagePersistence(router: NextRouter, i18n: I18nInstance) {
+export function useLanguagePersistence(router: NextRouter) {
   // This would use React.useEffect in a real Next.js environment
   // React.useEffect(() => {
   //   const cleanup = setupNextjsLanguagePersistence(router, i18n);

@@ -1,13 +1,15 @@
+// astro.config.mjs
+
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
+// This configuration is updated for deployment to GitHub Pages.
 export default defineConfig({
   outDir: 'dist',
   site: 'https://mohammed-ks02.github.io/MEDSS-import-export-SL/',
-  base: '/MEDSS-import-export-SL/', // <--- ADD THIS LINE
+  base: '/MEDSS-import-export-SL/',
   integrations: [
     tailwind(),
     react(),
@@ -24,7 +26,3 @@ export default defineConfig({
     },
   },
 });
-
-export function withBase(path) {
-  return import.meta.env.BASE_URL + path.replace(/^\//, '');
-}

@@ -80,7 +80,7 @@
   "company_phone_label": "Company Phone",
   "commercial_phone_label": "Commercial Phone",
   "featured_title": "Premium Spanish Products for Global Trade",
-  "featured_desc": "Sourced and delivered by 🚢 MED SS IMPORT & EXPORT — your trusted partner for Spanish fresh produce worldwide.",
+  "featured_desc": "Sourced and delivered by MED SS IMPORT & EXPORT — your trusted partner for Spanish fresh produce worldwide.",
   "featured_card1_title": "Container Transport",
   "featured_card2_title": "Fresh Produce Logistics",
   "featured_card3_title": "Cold Chain Solutions",
@@ -127,6 +127,20 @@
     "professional_delivery": "Professional Delivery",
     "quality_control_desc": "Rigorous quality standards ensure freshness",
     "professional_delivery_desc": "Reliable logistics and inventory management"
-  }
+  },
+  "why_choose": {
+    "title": "Why Choose MED SS IMPORT & EXPORT?",
+    "subtitle": "Your trusted partner for premium Spanish produce with global reach",
+    "premium_quality": "Premium Quality",
+    "premium_quality_desc": "Rigorous quality control ensures only the finest Spanish produce reaches global markets",
+    "global_reach": "Global Reach",
+    "global_reach_desc": "Worldwide distribution network connecting Spanish excellence with international markets",
+    "fresh_delivery": "Fresh Delivery",
+    "fresh_delivery_desc": "Cold chain logistics guarantee maximum freshness from farm to destination"
+  },
+  "video_title": "Premium Spanish Lemons",
+  "video_desc": "Experience the exceptional quality of our Spanish lemons - from our orchards to your market. Watch our premium citrus fruits showcase the freshness and excellence that defines MED SS IMPORT & EXPORT.",
+  "video_badge": "100% Natural • Fresh from Spain • Export Quality",
+  "video_cta": "Explore Our Complete Product Range"
 }
 

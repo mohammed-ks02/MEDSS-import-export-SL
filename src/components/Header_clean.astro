@@ -1,0 +1,245 @@
+---
+// The problematic import for `withBase` has been removed.
+// All links now use standard root-relative paths. Astro will automatically
+// handle the correct pathing for your GitHub Pages deployment during the build. [1, 3]
+---
+
+<header class="bg-white shadow-lg sticky top-0 z-50 py-2">
+  <nav class="container py-1">
+    <div class="flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="/" class="text-2xl font-bold text-green-800 hover:text-green-600 transition-colors flex items-center">
+          <img src="/logo.webp" alt="MED SS IMPORT & EXPORT Logo" class="h-6 w-auto md:h-8 lg:h-10 object-contain transition-all duration-200" />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="/" class="text-gray-700 hover:text-green-600 font-medium transition-colors" data-i18n="nav_home">
+          Home
+        </a>
+        <a href="/products" class="text-gray-700 hover:text-green-600 font-medium transition-colors" data-i18n="nav_products">
+          Products
+        </a>
+        <a href="/about" class="text-gray-700 hover:text-green-600 font-medium transition-colors" data-i18n="nav_about">
+          About Us
+        </a>
+        <a href="/contact" class="text-gray-700 hover:text-green-600 font-medium transition-colors" data-i18n="nav_contact">
+          Contact
+        </a>
+        <div class="relative ml-4">
+          <button id="lang-toggle" class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-green-100 text-green-800 font-semibold transition flex items-center space-x-2">
+            <span id="current-lang">ES</span>
+            <svg class="w-4 h-4 transition-transform" id="dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="lang-dropdown" class="absolute right-0 mt-2 w-16 bg-white border border-gray-200 rounded-lg shadow-lg z-50 hidden">
+            <button class="lang-option w-full px-4 py-2 text-left hover:bg-green-50 text-green-800 font-semibold" data-lang="en">EN</button>
+            <button class="lang-option w-full px-4 py-2 text-left hover:bg-green-50 text-green-800 font-semibold" data-lang="es">ES</button>
+            <button class="lang-option w-full px-4 py-2 text-left hover:bg-green-50 text-green-800 font-semibold" data-lang="fr">FR</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="lg:hidden">
+        <button 
+          type="button" 
+          class="text-gray-700 hover:text-green-600 focus:outline-none focus:text-green-600"
+          aria-label="Toggle mobile menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          id="mobile-menu-toggle"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4">
+      <div class="flex flex-col space-y-4">
+        <a href="/" class="text-gray-700 hover:text-green-600 font-medium py-2" data-i18n="nav_home">
+          Home
+        </a>
+        <a href="/products" class="text-gray-700 hover:text-green-600 font-medium py-2" data-i18n="nav_products">
+          Products
+        </a>
+        <a href="/about" class="text-gray-700 hover:text-green-600 font-medium py-2" data-i18n="nav_about">
+          About Us
+        </a>
+        <a href="/contact" class="text-gray-700 hover:text-green-600 font-medium py-2" data-i18n="nav_contact">
+          Contact
+        </a>
+        <div class="relative mt-2">
+          <button id="lang-toggle-mobile" class="w-full px-4 py-2 rounded-lg bg-gray-100 hover:bg-green-100 text-green-800 font-semibold transition flex items-center justify-center space-x-2">
+            <span id="current-lang-mobile">ES</span>
+            <svg class="w-4 h-4 transition-transform" id="dropdown-arrow-mobile" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="lang-dropdown-mobile" class="absolute left-0 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50 hidden">
+            <button class="lang-option-mobile w-full px-4 py-2 text-center hover:bg-green-50 text-green-800 font-semibold" data-lang="en">EN</button>
+            <button class="lang-option-mobile w-full px-4 py-2 text-center hover:bg-green-50 text-green-800 font-semibold" data-lang="es">ES</button>
+            <button class="lang-option-mobile w-full px-4 py-2 text-center hover:bg-green-50 text-green-800 font-semibold" data-lang="fr">FR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  const translations = {
+    en: {
+      nav_home: "Home",
+      nav_products: "Products",
+      nav_about: "About Us",
+      nav_contact: "Contact",
+      // Additional translations can be added here
+    },
+    es: {
+      nav_home: "Inicio",
+      nav_products: "Productos",
+      nav_about: "Sobre Nosotros",
+      nav_contact: "Contacto",
+    },
+    fr: {
+      nav_home: "Accueil",
+      nav_products: "Produits",
+      nav_about: "À propos",
+      nav_contact: "Contact",
+    }
+  };
+
+  function getCurrentLanguage() {
+    const lang = localStorage.getItem('lang') || 'es';
+    return lang.toUpperCase();
+  }
+
+  function changeLanguage(lng) {
+    const normalizedLang = lng.toLowerCase();
+    setLanguage(normalizedLang);
+    updateLanguageDisplay();
+  }
+
+  function setLanguage(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+    localStorage.setItem('lang', lang);
+  }
+
+  function updateLanguageDisplay() {
+    const currentLang = getCurrentLanguage();
+    
+    const currentLangSpan = document.getElementById('current-lang');
+    if (currentLangSpan) {
+      currentLangSpan.textContent = currentLang;
+    }
+    
+    const currentLangMobileSpan = document.getElementById('current-lang-mobile');
+    if (currentLangMobileSpan) {
+      currentLangMobileSpan.textContent = currentLang;
+    }
+    
+    document.querySelectorAll('.lang-option, .lang-option-mobile').forEach(option => {
+      const optionLang = option.getAttribute('data-lang').toUpperCase();
+      if (optionLang === currentLang) {
+        option.style.display = 'none';
+      } else {
+        option.style.display = 'block';
+      }
+    });
+  }
+
+  function toggleDropdown(dropdownId, arrowId) {
+    const dropdown = document.getElementById(dropdownId);
+    const arrow = document.getElementById(arrowId);
+    
+    if (dropdown && arrow) {
+      const isHidden = dropdown.classList.contains('hidden');
+      
+      document.querySelectorAll('#lang-dropdown, #lang-dropdown-mobile').forEach(d => {
+        d.classList.add('hidden');
+      });
+      document.querySelectorAll('#dropdown-arrow, #dropdown-arrow-mobile').forEach(a => {
+        a.style.transform = 'rotate(0deg)';
+      });
+      
+      if (isHidden) {
+        dropdown.classList.remove('hidden');
+        arrow.style.transform = 'rotate(180deg)';
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const lang = localStorage.getItem('lang') || 'es';
+    setLanguage(lang);
+    updateLanguageDisplay();
+    
+    const langToggle = document.getElementById('lang-toggle');
+    if (langToggle) {
+      langToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDropdown('lang-dropdown', 'dropdown-arrow');
+      });
+    }
+    
+    const langToggleMobile = document.getElementById('lang-toggle-mobile');
+    if (langToggleMobile) {
+      langToggleMobile.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDropdown('lang-dropdown-mobile', 'dropdown-arrow-mobile');
+      });
+    }
+    
+    document.querySelectorAll('.lang-option').forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const selectedLang = option.getAttribute('data-lang');
+        changeLanguage(selectedLang);
+        document.getElementById('lang-dropdown').classList.add('hidden');
+        document.getElementById('dropdown-arrow').style.transform = 'rotate(0deg)';
+      });
+    });
+    
+    document.querySelectorAll('.lang-option-mobile').forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const selectedLang = option.getAttribute('data-lang');
+        changeLanguage(selectedLang);
+        document.getElementById('lang-dropdown-mobile').classList.add('hidden');
+        document.getElementById('dropdown-arrow-mobile').style.transform = 'rotate(0deg)';
+      });
+    });
+    
+    document.addEventListener('click', () => {
+      document.querySelectorAll('#lang-dropdown, #lang-dropdown-mobile').forEach(dropdown => {
+        dropdown.classList.add('hidden');
+      });
+      document.querySelectorAll('#dropdown-arrow, #dropdown-arrow-mobile').forEach(arrow => {
+        arrow.style.transform = 'rotate(0deg)';
+      });
+    });
+
+    // Mobile menu toggle
+    const btn = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        menu.classList.toggle('hidden');
+      });
+    }
+  });
+</script>

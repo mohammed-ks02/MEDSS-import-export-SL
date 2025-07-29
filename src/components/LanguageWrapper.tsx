@@ -14,8 +14,8 @@ const LanguageWrapper: React.FC<LanguageWrapperProps> = ({
   // Initialize i18n with client-side language detection
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
-      // Check saved language first
-      const savedLanguage = localStorage.getItem('language');
+      // Check saved language first (check both keys for compatibility)
+      const savedLanguage = localStorage.getItem('language') || localStorage.getItem('lang');
       
       let targetLanguage: string;
       
@@ -34,14 +34,29 @@ const LanguageWrapper: React.FC<LanguageWrapperProps> = ({
           targetLanguage = initialLanguage || 'es';
         }
         
-        // Save the detected/default language
+        // Save the detected/default language to both keys
         localStorage.setItem('language', targetLanguage);
+        localStorage.setItem('lang', targetLanguage);
       }
       
       // Set the language if it's different from current
       if (i18n.language !== targetLanguage) {
         i18n.changeLanguage(targetLanguage);
       }
+      
+      // Listen for language changes from header
+      const handleLanguageChange = (event: CustomEvent) => {
+        const newLanguage = event.detail.language;
+        if (i18n.language !== newLanguage) {
+          i18n.changeLanguage(newLanguage);
+        }
+      };
+      
+      window.addEventListener('languageChange', handleLanguageChange as EventListener);
+      
+      return () => {
+        window.removeEventListener('languageChange', handleLanguageChange as EventListener);
+      };
     }
   }, [initialLanguage]);
 

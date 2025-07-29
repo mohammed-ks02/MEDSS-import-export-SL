@@ -1,7 +1,27 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
+    // --- Crucial for JSX and JSON Integration ---
+    "jsx": "preserve",
+    "jsxImportSource": "react",
+    
+    // Allows importing.json files directly, fixing the "Cannot find module" errors.
+    "resolveJsonModule": true, 
+    
+    "esModuleInterop": true,
+
+    // --- Module Resolution and Project Structure ---
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
+    // --- General TypeScript Settings ---
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  // Prevents TypeScript from checking the built output folder.
+  "exclude": ["dist", "backup_untracked"] 
 }

@@ -80,7 +80,7 @@
   "company_phone_label": "Téléphone Entreprise",
   "commercial_phone_label": "Téléphone Commercial",
   "featured_title": "Produits premium pour le commerce mondial",
-  "featured_desc": "Sourcés et livrés par 🚢 MED SS IMPORT & EXPORT — votre partenaire de confiance pour la logistique d'import/export et les produits frais dans le monde entier.",
+  "featured_desc": "Sourcés et livrés par MED SS IMPORT & EXPORT — votre partenaire de confiance pour la logistique d'import/export et les produits frais dans le monde entier.",
   "featured_card1_title": "Transport de conteneurs",
   "featured_card2_title": "Logistique des produits frais",
   "featured_card3_title": "Solutions chaîne du froid",
@@ -127,5 +127,19 @@
     "professional_delivery": "Livraison Professionnelle",
     "quality_control_desc": "Des standards de qualité rigoureux garantissent la fraîcheur",
     "professional_delivery_desc": "Logistique fiable et gestion d'inventaire"
-  }
+  },
+  "why_choose": {
+    "title": "Pourquoi Choisir MED SS IMPORT & EXPORT ?",
+    "subtitle": "Votre partenaire de confiance pour des produits espagnols premium avec une portée mondiale",
+    "premium_quality": "Qualité Premium",
+    "premium_quality_desc": "Un contrôle qualité rigoureux garantit que seuls les meilleurs produits espagnols atteignent les marchés mondiaux",
+    "global_reach": "Portée Mondiale",
+    "global_reach_desc": "Réseau de distribution mondial reliant l'excellence espagnole aux marchés internationaux",
+    "fresh_delivery": "Livraison Fraîche",
+    "fresh_delivery_desc": "La logistique de chaîne du froid garantit une fraîcheur maximale de la ferme à la destination"
+  },
+  "video_title": "Citrons Espagnols Premium",
+  "video_desc": "Découvrez la qualité exceptionnelle de nos citrons espagnols - de nos vergers à votre marché. Regardez nos agrumes premium mettre en valeur la fraîcheur et l'excellence qui définissent MED SS IMPORT & EXPORT.",
+  "video_badge": "100% Naturel • Frais d'Espagne • Qualité Export",
+  "video_cta": "Explorer Notre Gamme Complète de Produits"
 }
