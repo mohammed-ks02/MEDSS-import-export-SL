@@ -6,10 +6,10 @@ import { initReactI18next, useTranslation } from 'react-i18next';
 // 'React' has been removed as it is not needed in scope for modern JSX.
 import { createContext, useContext, type ReactNode } from 'react';
 
-// These imports will now work correctly with `resolveJsonModule: true` in tsconfig.json
-import enTranslations from '../../public/locales/en/translation.json';
-import esTranslations from '../../public/locales/es/translation.json';
-import frTranslations from '../../public/locales/fr/translation.json';
+// Import from src/locales for consistency
+import enTranslations from '../locales/en/common.json';
+import esTranslations from '../locales/es/common.json';
+import frTranslations from '../locales/fr/common.json';
 
 interface LanguageContextType {
   language: string;

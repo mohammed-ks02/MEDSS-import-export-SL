@@ -113,10 +113,13 @@ const detectedLanguage = DEFAULT_LANGUAGE;
   // Load translations from JSON files
   async function loadTranslations() {
     try {
+      // Get the base path from the current URL
+      const currentPath = window.location.pathname;
+      const basePath = currentPath.includes('/MEDSS-import-export-SL/') ? '/MEDSS-import-export-SL/' : '/';
       const [enRes, esRes, frRes] = await Promise.all([
-        fetch('/src/locales/en/common.json').catch(() => null),
-        fetch('/src/locales/es/common.json').catch(() => null),
-        fetch('/src/locales/fr/common.json').catch(() => null)
+        fetch(`${basePath}locales/en/translation.json`).catch(() => null),
+        fetch(`${basePath}locales/es/translation.json`).catch(() => null),
+        fetch(`${basePath}locales/fr/translation.json`).catch(() => null)
       ]);
       
       if (enRes) translations.en = await enRes.json();
