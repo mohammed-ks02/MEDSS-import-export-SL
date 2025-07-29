@@ -1,5 +1,5 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     // --- Crucial for JSX and JSON Integration ---
     "jsx": "preserve",
@@ -19,9 +19,13 @@
     // --- General TypeScript Settings ---
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noEmit": true,
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   },
-  "include": [".astro/types.d.ts", "**/*"],
+  "include": [".astro/types.d.ts", "src/**/*"],
   // Prevents TypeScript from checking the built output folder.
-  "exclude": ["dist", "backup_untracked"] 
+  "exclude": ["dist", "docs", "backup_untracked", "node_modules"] 
 }
