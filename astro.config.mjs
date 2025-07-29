@@ -7,7 +7,6 @@ import sitemap from '@astrojs/sitemap';
 
 // This configuration is updated for deployment to GitHub Pages.
 export default defineConfig({
-  outDir: 'docs',
   site: 'https://mohammed-ks02.github.io/MEDSS-import-export-SL/',
   base: '/MEDSS-import-export-SL/',
   integrations: [

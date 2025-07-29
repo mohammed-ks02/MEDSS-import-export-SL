@@ -1,1 +1,0 @@
-import{u as o,j as u}from"./i18n.BextP48T.js";import"./index.B52nOzfP.js";const p=({translationKey:t,fallback:a="",className:s="",tag:e="span"})=>{const{t:n}=o(),r=n(t,a);return u.jsx(e,{className:s,children:r})};export{p as default};
