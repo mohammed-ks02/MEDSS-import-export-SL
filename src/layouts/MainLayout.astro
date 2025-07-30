@@ -6,6 +6,7 @@ import LanguageWrapper from '../components/LanguageWrapper';
 import { SEO } from 'astro-seo';
 import type { Props as SEOProps } from 'astro-seo';
 import { DEFAULT_LANGUAGE } from '../utils/serverLanguage';
+import { withBase } from '../utils/basePath';
 
 // Define the props that each page can pass to the layout
 export interface Props {
@@ -49,6 +50,20 @@ const detectedLanguage = DEFAULT_LANGUAGE;
     
     <!-- Preload critical fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+    
+    <!-- Prevent FOUC -->
+    <style>
+      html { 
+        visibility: hidden; 
+        opacity: 0; 
+        transition: opacity 0.3s ease-in-out;
+      }
+      html.loaded {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
     
     <!-- Schema.org structured data for Organization -->
     <script type="application/ld+json" is:inline>
@@ -227,6 +242,9 @@ const detectedLanguage = DEFAULT_LANGUAGE;
     const savedLang = localStorage.getItem('lang') || localStorage.getItem('language') || 'es';
     currentLanguage = savedLang;
     
+    // Show the page with smooth transition
+    document.documentElement.classList.add('loaded');
+    
     loadTranslations().then(() => {
       applyTranslations();
       updateLanguageDisplay();
@@ -242,6 +260,13 @@ const detectedLanguage = DEFAULT_LANGUAGE;
         const dropdowns = document.querySelectorAll('#lang-dropdown, #lang-dropdown-mobile');
         dropdowns.forEach(dropdown => dropdown.classList.add('hidden'));
       }
+    });
+    
+    // Persist language on page navigation
+    window.addEventListener('beforeunload', () => {
+      const currentLang = localStorage.getItem('lang') || localStorage.getItem('language') || 'es';
+      localStorage.setItem('lang', currentLang);
+      localStorage.setItem('language', currentLang);
     });
   }
   
