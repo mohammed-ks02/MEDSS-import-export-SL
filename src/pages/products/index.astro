@@ -44,6 +44,31 @@ import TranslatableText from '../../components/TranslatableText';
   60% { filter: brightness(1.1); }
   100% { transform: translateY(-18px) scale(1.08); filter: brightness(1.2); }
 }
+
+/* Scrolling cards styles */
+.card {
+  min-width: 280px;
+  flex-shrink: 0;
+}
+
+/* Scrollbar styling */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 8px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: #16a34a;
+}
 </style>
 
 <MainLayout 
@@ -70,7 +95,7 @@ import TranslatableText from '../../components/TranslatableText';
       <!-- Fruits Section (Now First) -->
       <div>
         <h2 class="text-3xl font-bold text-orange-800 mb-8 text-center" data-i18n="products_fruits">Fresh Fruits</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div class="flex overflow-x-auto space-x-4 mb-8">
           <div class="card group hover:shadow-xl transition-shadow duration-300">
             <img 
               src={withBase('/IMG-20250702-WA0058.webp')} 
@@ -79,7 +104,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <TranslatableText 
                 translationKey="products.apples" 
                 fallback="Apples" 
@@ -97,7 +122,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <TranslatableText 
                 translationKey="products.avocados" 
                 fallback="Avocados" 
@@ -115,7 +140,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <TranslatableText 
                 translationKey="products.cherimoyas" 
                 fallback="Cherimoyas" 
@@ -133,7 +158,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <TranslatableText 
                 translationKey="products.dragon_fruits" 
                 fallback="Dragon Fruits" 
@@ -146,7 +171,7 @@ import TranslatableText from '../../components/TranslatableText';
         </div>
         
         <!-- More Fruits Row -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div class="flex overflow-x-auto space-x-4 mb-8">
           <div class="card group hover:shadow-xl transition-shadow duration-300">
             <img 
               src={withBase('/IMG-20250701-WA0004.webp')} 
@@ -155,7 +180,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <TranslatableText 
                 translationKey="products.green_bananas" 
                 fallback="Green Bananas" 
@@ -173,7 +198,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <TranslatableText 
                 translationKey="products.kiwi_fruit" 
                 fallback="Kiwi Fruit" 
@@ -191,7 +216,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <TranslatableText 
                 translationKey="products.limes" 
                 fallback="Limes" 
@@ -209,7 +234,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <TranslatableText 
                 translationKey="products.mangoes" 
                 fallback="Mangoes" 
@@ -222,7 +247,7 @@ import TranslatableText from '../../components/TranslatableText';
         </div>
 
         <!-- More Fruits Row 2 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div class="flex overflow-x-auto space-x-4 mb-8">
           <div class="card group hover:shadow-xl transition-shadow duration-300">
             <img 
               src={withBase('/IMG-20250702-WA0042.webp')} 
@@ -231,7 +256,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Piel de Sapo Melon</h4>
             </div>
           </div>
@@ -243,7 +268,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Yellow Melon</h4>
             </div>
           </div>
@@ -255,7 +280,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Watermelon</h4>
             </div>
           </div>
@@ -267,14 +292,14 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Oranges</h4>
             </div>
           </div>
         </div>
         
         <!-- More Fruits Row 3 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div class="flex overflow-x-auto space-x-4 mb-8">
           <div class="card group hover:shadow-xl transition-shadow duration-300">
             <img 
               src={withBase('/IMG-20250702-WA0004.webp')} 
@@ -283,7 +308,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Pears</h4>
             </div>
           </div>
@@ -295,7 +320,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Pears</h4>
             </div>
           </div>
@@ -307,7 +332,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Pears</h4>
             </div>
           </div>
@@ -319,14 +344,14 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Pears</h4>
             </div>
           </div>
         </div>
 
         <!-- Last Fruits Row -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="flex overflow-x-auto space-x-4">
           <div class="card group hover:shadow-xl transition-shadow duration-300">
             <img 
               src={withBase('/IMG-20250702-WA0096.webp')} 
@@ -335,7 +360,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Plums</h4>
             </div>
           </div>
@@ -347,7 +372,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Red Grapes</h4>
             </div>
           </div>
@@ -356,7 +381,7 @@ import TranslatableText from '../../components/TranslatableText';
       <!-- Vegetables Section -->
       <div>
         <h2 class="text-3xl font-bold text-green-800 mb-8 text-center" data-i18n="products_veggies">Fresh Vegetables</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div class="flex overflow-x-auto space-x-4 mb-8">
           <div class="card group hover:shadow-xl transition-shadow duration-300">
             <img 
               src={withBase('/IMG-20250702-WA0041.webp')} 
@@ -365,7 +390,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Ginger</h4>
             </div>
           </div>
@@ -377,7 +402,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Potatoes</h4>
             </div>
           </div>
@@ -389,7 +414,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Potatoes</h4>
             </div>
           </div>
@@ -401,14 +426,14 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Potatoes</h4>
             </div>
           </div>
         </div>
         
         <!-- Tomatoes Row -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="flex overflow-x-auto space-x-4">
           <div class="card group hover:shadow-xl transition-shadow duration-300">
             <img 
               src={withBase('/IMG-20250702-WA0082.webp')} 
@@ -417,7 +442,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Tomatoes</h4>
             </div>
           </div>
@@ -429,7 +454,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Tomatoes</h4>
             </div>
           </div>
@@ -441,7 +466,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Tomatoes</h4>
             </div>
           </div>
@@ -453,7 +478,7 @@ import TranslatableText from '../../components/TranslatableText';
               loading="lazy"
               decoding="async"
             />
-            <div class="p-6 text-center">
+        <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Tomatoes</h4>
             </div>
           </div>
