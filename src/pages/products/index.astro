@@ -2,88 +2,29 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import { withBase } from '../../utils/basePath';
 import TranslatableText from '../../components/TranslatableText';
-// Removed 3D imports
 ---
 
-<style>
-  .jump {
-    display: inline-block;
-    animation: jump 1s infinite alternate cubic-bezier(.5,1.8,.5,1);
-  }
-  @keyframes jump {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-20px); }
-  }
-  .fish-jump {
-    display: inline-block;
-    animation: fish-jump 1.2s infinite alternate cubic-bezier(.5,1.8,.5,1);
-  }
-  @keyframes fish-jump {
-    0% { transform: translateY(0) scale(1); filter: brightness(1); }
-    60% { filter: brightness(1.1); }
-    100% { transform: translateY(-18px) scale(1.08); filter: brightness(1.2); }
-  }
-.icon-bg {
-  background: linear-gradient(135deg, #f3f4f6 60%, #e0e7ff 100%);
-  border-radius: 9999px;
-  padding: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  margin: 0.25rem;
-}
-.icon-jump {
-  display: inline-block;
-  animation: icon-jump 1.2s infinite alternate cubic-bezier(.5,1.8,.5,1);
-  transition: filter 0.2s, transform 0.2s;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
-}
-@keyframes icon-jump {
-  0% { transform: translateY(0) scale(1); filter: brightness(1); }
-  60% { filter: brightness(1.1); }
-  100% { transform: translateY(-18px) scale(1.08); filter: brightness(1.2); }
-}
-
-/* Scrolling cards styles */
-.card {
-  min-width: 280px;
-  flex-shrink: 0;
-}
-
-/* Scrollbar styling */
-.overflow-x-auto::-webkit-scrollbar {
-  height: 8px;
-}
-
-.overflow-x-auto::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.overflow-x-auto::-webkit-scrollbar-thumb {
-  background: #22c55e;
-  border-radius: 10px;
-}
-
-.overflow-x-auto::-webkit-scrollbar-thumb:hover {
-  background: #16a34a;
-}
-</style>
-
 <MainLayout 
-  title="Products - MED SS IMPORT & EXPORT" 
-  description="Explore our comprehensive range of Spanish fresh fruits, vegetables, and seafood available for global import-export trade with MED SS IMPORT & EXPORT."
+  title="Products - MED SS IMPORT & EXPORT SL"
+  description="Explore our comprehensive range of fresh fruits, vegetables, and seafood available for global import-export trade with MED SS IMPORT & EXPORT."
 >
   <!-- Hero Section -->
   <section class="section bg-gradient-to-br from-green-50 to-green-100">
     <div class="container">
       <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6" data-i18n="products_title">
-          Premium Spanish Products for Global Trade
+        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <TranslatableText 
+            translationKey="products_title" 
+            fallbackText="Premium Products for Global Trade"
+            client:load
+          />
         </h1>
-        <p class="text-xl text-gray-600 leading-relaxed" data-i18n="products_desc">
-          Our extensive product portfolio spans Spanish fresh fruits, vegetables, and seafood sourced from Spain's finest regions, ensuring year-round availability and consistent quality for your import/export needs.
+        <p class="text-xl text-gray-600 leading-relaxed">
+          <TranslatableText 
+            translationKey="products_desc" 
+            fallbackText="Our extensive product portfolio spans fresh fruits, vegetables, and seafood sourced from the world's finest regions, ensuring year-round availability and consistent quality for your import/export needs."
+            client:load
+          />
         </p>
       </div>
     </div>
@@ -93,407 +34,434 @@ import TranslatableText from '../../components/TranslatableText';
   <section class="section bg-white">
     <div class="container space-y-16">
       <!-- Fruits Section -->
-      <div>
-        <h2 class="text-3xl font-bold text-orange-800 mb-8 text-center" data-i18n="products_fruits">Fresh Fruits</h2>
+      <div class="relative">
+        <h2 class="text-3xl font-bold text-orange-800 mb-8 text-center">
+          <TranslatableText 
+            translationKey="products_fruits" 
+            fallbackText="Fresh Fruits"
+            client:load
+          />
+        </h2>
+        <button class="scroll-btn absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-orange-600/70 hover:bg-orange-700/80 text-white py-3 px-3 rounded-full shadow-lg transition-all duration-200 backdrop-blur-sm" data-direction="left" aria-label="Scroll left">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <button class="scroll-btn absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-orange-600/70 hover:bg-orange-700/80 text-white py-3 px-3 rounded-full shadow-lg transition-all duration-200 backdrop-blur-sm" data-direction="right" aria-label="Scroll right">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
         <div class="flex overflow-x-auto space-x-4 pb-4">
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0058.webp')} 
-              alt="Fresh Spanish Apples"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <TranslatableText 
-                translationKey="products.apples" 
-                fallback="Apples" 
-                tag="h4" 
-                className="text-xl font-bold text-gray-900" 
-                client:load 
+          <!-- Avocados -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0012.webp')} 
+                alt="Premium Avocados - Hass variety in plastic crates"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0006.webp')} 
+                alt="Premium Avocados - Westfalia Fruit brand from South Africa"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
               />
             </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0012.webp')} 
-              alt="Premium Avocados"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
             <div class="p-2 text-center">
-              <TranslatableText 
-                translationKey="products.avocados" 
-                fallback="Avocados" 
-                tag="h4" 
-                className="text-xl font-bold text-gray-900" 
-                client:load 
+              <h4 class="text-xl font-bold text-gray-900">Avocados</h4>
+            </div>
+          </div>
+          <!-- Bananas -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250701-WA0004.webp')} 
+                alt="Green Bananas - Darelle brand from Costa Rica"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250701-WA0005.webp')} 
+                alt="Green Bananas - Different angle of Darelle brand box"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
               />
             </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0072.webp')} 
-              alt="Exotic Cherimoyas"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
             <div class="p-2 text-center">
-              <TranslatableText 
-                translationKey="products.cherimoyas" 
-                fallback="Cherimoyas" 
-                tag="h4" 
-                className="text-xl font-bold text-gray-900" 
-                client:load 
+              <h4 class="text-xl font-bold text-gray-900">Bananas</h4>
+            </div>
+          </div>
+          <!-- Grapes -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250701-WA0020.webp')} 
+                alt="Red Grapes - Quality control inspection with sizing tool"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
               />
             </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0052.webp')} 
-              alt="Dragon Fruits"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <TranslatableText 
-                translationKey="products.dragon_fruits" 
-                fallback="Dragon Fruits" 
-                tag="h4" 
-                className="text-xl font-bold text-gray-900" 
-                client:load 
-              />
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250701-WA0004.webp')} 
-              alt="Green Bananas"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <TranslatableText 
-                translationKey="products.green_bananas" 
-                fallback="Green Bananas" 
-                tag="h4" 
-                className="text-xl font-bold text-gray-900" 
-                client:load 
-              />
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250701-WA0057.webp')} 
-              alt="Kiwi Fruit"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <TranslatableText 
-                translationKey="products.kiwi_fruit" 
-                fallback="Kiwi Fruit" 
-                tag="h4" 
-                className="text-xl font-bold text-gray-900" 
-                client:load 
-              />
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0092.webp')} 
-              alt="Fresh Limes"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <TranslatableText 
-                translationKey="products.limes" 
-                fallback="Limes" 
-                tag="h4" 
-                className="text-xl font-bold text-gray-900" 
-                client:load 
-              />
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0097.webp')} 
-              alt="Tropical Mangoes"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <TranslatableText 
-                translationKey="products.mangoes" 
-                fallback="Mangoes" 
-                tag="h4" 
-                className="text-xl font-bold text-gray-900" 
-                client:load 
-              />
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0042.webp')} 
-              alt="Piel de Sapo Melon"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Piel de Sapo Melon</h4>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0083.webp')} 
-              alt="Yellow Melon"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Yellow Melon</h4>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0027.webp')} 
-              alt="Watermelon"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Watermelon</h4>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250701-WA0047.webp')} 
-              alt="Fresh Oranges"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Oranges</h4>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0004.webp')} 
-              alt="Premium Pears"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Pears</h4>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250701-WA0033.webp')} 
-              alt="Premium Pears"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Pears</h4>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0018.webp')} 
-              alt="Premium Pears"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Pears</h4>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0019.webp')} 
-              alt="Premium Pears"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Pears</h4>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0096.webp')} 
-              alt="Sweet Plums"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Plums</h4>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250701-WA0020.webp')} 
-              alt="Red Grapes"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
             <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Red Grapes</h4>
             </div>
           </div>
+          <!-- Oranges -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250701-WA0047.webp')} 
+                alt="Fresh Oranges - Box with cut orange and wrapped fruits"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250701-WA0050.webp')} 
+                alt="Fresh Oranges - Close-up of vibrant oranges in box"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="p-2 text-center">
+              <h4 class="text-xl font-bold text-gray-900">Oranges</h4>
+            </div>
+          </div>
+          <!-- Pears -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250701-WA0033.webp')} 
+                alt="Fresh Pears - Yellowish-green pears with cut samples"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0004.webp')} 
+                alt="Fresh Pears - Green pears on conveyor belt"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0018.webp')} 
+                alt="Fresh Pears - Russeted pears in black tray"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0019.webp')} 
+                alt="Fresh Pears - Russeted pears in wooden crate"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0068.webp')} 
+                alt="Fresh Pears - Green pears in lined box"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0070.webp')} 
+                alt="Fresh Pears - Yellowish-green pears in lined box"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0071.webp')} 
+                alt="Fresh Pears - Red and yellow two-toned pears"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="p-2 text-center">
+              <h4 class="text-xl font-bold text-gray-900">Pears</h4>
+            </div>
+          </div>
+          <!-- Kiwi -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250701-WA0057.webp')} 
+                alt="Fresh Kiwi - Garces Fruit brand with cut samples"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="p-2 text-center">
+              <h4 class="text-xl font-bold text-gray-900">Kiwi</h4>
+            </div>
+          </div>
+          <!-- Limes -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0093.webp')} 
+                alt="Fresh Limes - Pink box with cut lime sample"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0092.webp')} 
+                alt="Fresh Limes - Selected Limes brand in pink box"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="p-2 text-center">
+              <h4 class="text-xl font-bold text-gray-900">Limes</h4>
+            </div>
+          </div>
+          <!-- Watermelons -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0027.webp')} 
+                alt="Fresh Watermelons - Large dark green watermelons in wooden crates"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0038.webp')} 
+                alt="Fresh Watermelons - Striped watermelon on vine in greenhouse"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="p-2 text-center">
+              <h4 class="text-xl font-bold text-gray-900">Watermelons</h4>
+            </div>
+          </div>
+          <!-- Melons -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0042.webp')} 
+                alt="Piel de Sapo Melons - IRU Gold brand cantaloupe melons"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0083.webp')} 
+                alt="Yellow Melons - Dulce Costa Rican brand melons"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="p-2 text-center">
+              <h4 class="text-xl font-bold text-gray-900">Melons</h4>
+            </div>
+          </div>
+          <!-- Dragon Fruit -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0049.webp')} 
+                alt="Dragon Fruit - Exotic pitayas with pinkish-red skin"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0052.webp')} 
+                alt="Dragon Fruit - Top-down view with protective mesh"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="p-2 text-center">
+              <h4 class="text-xl font-bold text-gray-900">Dragon Fruit</h4>
+            </div>
+          </div>
+          <!-- Apples -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0058.webp')} 
+                alt="Fresh Apples - Large deep-red apples in neat rows"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="p-2 text-center">
+              <h4 class="text-xl font-bold text-gray-900">Apples</h4>
+            </div>
+          </div>
+          <!-- Plums -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0096.webp')} 
+                alt="Fresh Plums - Reddish-purple plums with natural bloom"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="p-2 text-center">
+              <h4 class="text-xl font-bold text-gray-900">Plums</h4>
+            </div>
+          </div>
+          <!-- Mangoes -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0097.webp')} 
+                alt="Fresh Mangoes - Mix of red and green mangoes in cold storage"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="p-2 text-center">
+              <h4 class="text-xl font-bold text-gray-900">Mangoes</h4>
+            </div>
+          </div>
+          <!-- Cherimoyas -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0072.webp')} 
+                alt="Cherimoyas - El Cerval brand custard apples with protective foam"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="p-2 text-center">
+              <h4 class="text-xl font-bold text-gray-900">Cherimoyas</h4>
+            </div>
+          </div>
         </div>
       </div>
-      
       <!-- Vegetables Section -->
-      <div>
-        <h2 class="text-3xl font-bold text-green-800 mb-8 text-center" data-i18n="products_veggies">Fresh Vegetables</h2>
+      <div class="relative">
+        <h2 class="text-3xl font-bold text-green-800 mb-8 text-center">
+          <TranslatableText 
+            translationKey="products_veggies" 
+            fallbackText="Fresh Vegetables"
+            client:load
+          />
+        </h2>
+        <button class="scroll-btn absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-green-600/70 hover:bg-green-700/80 text-white py-3 px-3 rounded-full shadow-lg transition-all duration-200 backdrop-blur-sm" data-direction="left" aria-label="Scroll left">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <button class="scroll-btn absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-green-600/70 hover:bg-green-700/80 text-white py-3 px-3 rounded-full shadow-lg transition-all duration-200 backdrop-blur-sm" data-direction="right" aria-label="Scroll right">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
         <div class="flex overflow-x-auto space-x-4 pb-4">
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0041.webp')} 
-              alt="Fresh Ginger"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
+          <!-- Ginger -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0041.webp')} 
+                alt="Fresh Ginger - Large ginger root from Brazil"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Ginger</h4>
             </div>
           </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0063.webp')} 
-              alt="Fresh Potatoes"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
+          <!-- Potatoes -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0063.webp')} 
+                alt="Fresh Potatoes - Unwashed potatoes with soil"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0078.webp')} 
+                alt="Fresh Potatoes - Clean light-skinned potatoes in crate"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0098.webp')} 
+                alt="Fresh Potatoes - Large sacks in warehouse storage"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Potatoes</h4>
             </div>
           </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0078.webp')} 
-              alt="Fresh Potatoes"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Potatoes</h4>
+          <!-- Tomatoes -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0082.webp')} 
+                alt="Fresh Tomatoes - Hortisa brand vine-ripened tomatoes"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0073.webp')} 
+                alt="Fresh Tomatoes - Packing line with multiple boxes"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
+              <img 
+                src={withBase('/IMG-20250702-WA0074.webp')} 
+                alt="Fresh Tomatoes - Red-orange tomatoes in blue trays"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500 absolute inset-0 opacity-0" 
+                loading="lazy"
+                decoding="async"
+              />
             </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0098.webp')} 
-              alt="Fresh Potatoes"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Potatoes</h4>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0082.webp')} 
-              alt="Fresh Tomatoes"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
             <div class="p-2 text-center">
               <h4 class="text-xl font-bold text-gray-900">Tomatoes</h4>
             </div>
           </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0074.webp')} 
-              alt="Fresh Tomatoes"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
+          <!-- Cherry Tomatoes -->
+          <div class="card group hover:shadow-xl transition-shadow duration-300 product-card" style="min-width: 280px; flex-shrink: 0;">
+            <div class="relative h-48 overflow-hidden rounded-t-2xl">
+              <img 
+                src={withBase('/IMG-20250702-WA0076.webp')} 
+                alt="Cherry Tomatoes - Retail-ready plastic cups with dome lids"
+                class="product-image h-48 w-full object-cover transition-opacity duration-500" 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Tomatoes</h4>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0073.webp')} 
-              alt="Fresh Tomatoes"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Tomatoes</h4>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/IMG-20250702-WA0076.webp')} 
-              alt="Fresh Tomatoes"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-2 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Tomatoes</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Quality and Service Section -->
-      <div>
-        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Quality & Service</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/b7b29ec1-b35c-4b43-b57d-58b2e2b7467f.webp')} 
-              alt="Quality control inspection in our facilities"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-6 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Quality Control</h4>
-              <p class="text-gray-600 mt-2">Rigorous quality standards ensure freshness</p>
-            </div>
-          </div>
-          <div class="card group hover:shadow-xl transition-shadow duration-300">
-            <img 
-              src={withBase('/dbf5403f-bf97-46c7-8ed5-7a8c0e089ec0.webp')} 
-              alt="Professional delivery and inventory management"
-              class="h-48 w-full object-cover rounded-t-2xl transition-opacity duration-300" 
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="p-6 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Professional Delivery</h4>
-              <p class="text-gray-600 mt-2">Reliable logistics and inventory management</p>
+              <h4 class="text-xl font-bold text-gray-900">Cherry Tomatoes</h4>
             </div>
           </div>
         </div>
@@ -501,5 +469,40 @@ import TranslatableText from '../../components/TranslatableText';
     </div>
   </section>
 
+
 </MainLayout>
 
+<script src={withBase('/scripts/scroll.js')}></script>
+
+<script>
+// Image rotation functionality for product cards
+document.addEventListener('DOMContentLoaded', function() {
+  const productCards = document.querySelectorAll('.product-card');
+  
+  productCards.forEach(card => {
+    const images = card.querySelectorAll('.product-image');
+    if (images.length > 1) {
+      let currentIndex = 0;
+      
+      // Start rotation after 2 seconds
+      setTimeout(() => {
+        const rotateImages = () => {
+          // Fade out current image
+          images[currentIndex].style.opacity = '0';
+          
+          // Move to next image
+          currentIndex = (currentIndex + 1) % images.length;
+          
+          // Fade in next image after a short delay
+          setTimeout(() => {
+            images[currentIndex].style.opacity = '1';
+          }, 250);
+        };
+        
+        // Rotate every 3 seconds
+        setInterval(rotateImages, 3000);
+      }, Math.random() * 2000); // Random delay to avoid all cards changing at once
+    }
+  });
+});
+</script>

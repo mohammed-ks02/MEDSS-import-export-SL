@@ -1,0 +1,1 @@
+import{j as o}from"./common.DlSz_IQz.js";import"./index.B52nOzfP.js";import{u as m}from"./i18n.F9xZKMSM.js";const i=({translationKey:t,fallback:a="",className:s="",tag:r="span"})=>{const{t:e}=m(),n=e(t,a);return o.jsx(r,{className:s,children:n})};export{i as default};

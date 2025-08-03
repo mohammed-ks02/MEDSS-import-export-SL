@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLanguage } from '../utils/i18n.jsx';
+import { useLanguage } from '../utils/i18n.tsx';
 
 interface TranslatableTextProps {
   translationKey: string;

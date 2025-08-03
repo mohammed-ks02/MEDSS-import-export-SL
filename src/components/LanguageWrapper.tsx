@@ -1,6 +1,7 @@
 import React from 'react';
-import { LanguageProvider } from '../utils/i18n.jsx';
-import i18n from '../utils/i18n.jsx';
+import { LanguageProvider } from '../utils/i18n.tsx';
+import { I18nextProvider } from 'react-i18next';
+import i18n from '../utils/i18n.tsx';
 
 interface LanguageWrapperProps {
   children: React.ReactNode;
@@ -61,9 +62,11 @@ const LanguageWrapper: React.FC<LanguageWrapperProps> = ({
   }, [initialLanguage]);
 
   return (
-    <LanguageProvider>
-      {children}
-    </LanguageProvider>
+    <I18nextProvider i18n={i18n}>
+      <LanguageProvider>
+        {children}
+      </LanguageProvider>
+    </I18nextProvider>
   );
 };
 

@@ -7,15 +7,15 @@ import sitemap from '@astrojs/sitemap';
 
 // This configuration is updated for deployment to GitHub Pages.
 export default defineConfig({
-  site: 'https://mohammed-ks02.github.io/MEDSS-import-export-SL/',
-  base: '/MEDSS-import-export-SL/',
+  site: 'https://www.medss.net', // 👉 use your custom domain here
+  // base: '/MEDSS-import-export-SL/',
   integrations: [
     tailwind(),
     react(),
     sitemap()
   ],
   image: {
-    domains: ['your-cms-domain.com'] // Add your CMS domain here
+    domains: ['www.medss.net'] // fix your image domain list (no protocol, no extra .com)
   },
   build: {
     format: 'directory'

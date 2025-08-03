@@ -1,6 +1,7 @@
 ---
 // Hero section component
 import { withBase } from '../../utils/basePath';
+import TranslatableText from '../TranslatableText';
 ---
 
 <section class="relative section">
@@ -8,15 +9,28 @@ import { withBase } from '../../utils/basePath';
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <!-- Left Column - Content -->
       <div class="text-center lg:text-left">
-        <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6" data-i18n="hero_title">
-          <span class="text-green-600"> MED SS IMPORT & EXPORT</span>
-        </h1>
-        <p class="text-xl text-gray-600 mb-8 max-w-lg" data-i18n="hero_desc">
-          Your premier partner for global import/export and logistics. From port to port, MED SS IMPORT & EXPORT ensures quality, reliability, and seamless delivery in every shipment.
-        </p>
+        <TranslatableText 
+          client:load
+          translationKey="hero_title" 
+          tag="h1"
+          className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6"
+          fallback="Premium Spanish Produce for Global Markets"
+        />
+        <TranslatableText 
+          client:load
+          translationKey="hero_desc"
+          tag="p"
+          className="text-xl text-gray-600 mb-8 max-w-lg"
+          fallback="Your premier partner for Spanish fresh produce export. From our facilities in Sevilla and Barcelona, MED SS ensures quality, reliability, and seamless delivery worldwide."
+        />
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <a href={withBase('/products')} class="btn-primary text-center" data-i18n="hero_btn">
-            View Our Products
+          <a href={withBase('/products')} class="btn-primary text-center">
+            <TranslatableText
+              client:load
+              translationKey="hero_btn"
+              tag="span"
+              fallback="View Our Products"
+            />
           </a>
         </div>
         
@@ -24,22 +38,40 @@ import { withBase } from '../../utils/basePath';
         <div class="grid grid-cols-3 gap-4 mt-12 text-center">
           <div>
             <div class="text-2xl font-bold text-green-600">50+</div>
-            <div class="text-sm text-gray-600" data-i18n="hero_countries">Countries Served</div>
+            <TranslatableText
+              client:load
+              translationKey="hero_countries"
+              tag="div"
+              className="text-sm text-gray-600"
+              fallback="Countries Served"
+            />
           </div>
           <div>
-            <div class="text-2xl font-bold text-green-600">25+</div>
-            <div class="text-sm text-gray-600" data-i18n="hero_experience">Years Experience</div>
+            <div class="text-2xl font-bold text-green-600">+3</div>
+            <TranslatableText
+              client:load
+              translationKey="hero_experience"
+              tag="div"
+              className="text-sm text-gray-600"
+              fallback="Years Experience"
+            />
           </div>
           <div>
             <div class="text-2xl font-bold text-green-600">99%</div>
-            <div class="text-sm text-gray-600" data-i18n="hero_ontime">On-Time Delivery</div>
+            <TranslatableText
+              client:load
+              translationKey="hero_ontime"
+              tag="div"
+              className="text-sm text-gray-600"
+              fallback="On-Time Delivery"
+            />
           </div>
         </div>
       </div>
 
       <!-- Right Column - Image Collage -->
       <div class="relative">
-        <img src={withBase('/9ef17d90-d5be-48d2-95a1-c7069425d869.webp')} alt="A brightly lit, extensive display of various fresh fruits and vegetables on shelves, including tomatoes, cucumbers, eggplants, bell peppers (red, yellow, green), cauliflower, and ginger. Showcasing the wide variety of fresh produce for import/export." class="rounded-2xl shadow-xl object-cover h-96 w-full" />
+        <img src={withBase('/basckets_of_fruits_vegetables.webp')} alt="Beautiful baskets filled with a variety of fresh fruits and vegetables, showcasing the diverse and high-quality produce available for import/export through MED SS IMPORT & EXPORT." class="rounded-2xl shadow-xl object-cover h-96 w-full" />
       </div>
     </div>
   </div>

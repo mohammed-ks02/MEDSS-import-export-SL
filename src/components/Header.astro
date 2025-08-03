@@ -131,15 +131,22 @@ import { withBase } from '../utils/basePath';
   }
 
   function setLanguage(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (translations[lang] && translations[lang][key]) {
-        el.textContent = translations[lang][key];
-      }
-    });
     // Set both localStorage keys for compatibility
     localStorage.setItem('lang', lang);
     localStorage.setItem('language', lang);
+    
+    // Let the global translation system handle the actual translation
+    if (window.changeLanguage) {
+      window.changeLanguage(lang);
+    } else {
+      // Fallback for immediate nav translation
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
   }
 
   function updateLanguageDisplay() {
