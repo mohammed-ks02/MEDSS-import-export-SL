@@ -71,8 +71,20 @@ import TranslatableText from '../components/TranslatableText';
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
               </svg>
               <div>
-                <span class="font-semibold text-gray-900" data-i18n="about_value_quality">Quality First:</span>
-                <span class="text-gray-600" data-i18n="about_value_quality_desc"> Never compromising on the standards that define exceptional produce</span>
+                <TranslatableText
+                  client:load
+                  translationKey="about_value_quality"
+                  tag="span"
+                  className="font-semibold text-gray-900"
+                  fallback="Quality First:"
+                />
+                <TranslatableText
+                  client:load
+                  translationKey="about_value_quality_desc"
+                  tag="span"
+                  className="text-gray-600"
+                  fallback=" Never compromising on the standards that define exceptional produce"
+                />
               </div>
             </li>
             <li class="flex items-start">
@@ -80,8 +92,20 @@ import TranslatableText from '../components/TranslatableText';
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
               </svg>
               <div>
-                <span class="font-semibold text-gray-900" data-i18n="about_value_sustain">Sustainability:</span>
-                <span class="text-gray-600" data-i18n="about_value_sustain_desc"> Supporting eco-friendly farming and responsible trade practices</span>
+                <TranslatableText
+                  client:load
+                  translationKey="about_value_sustain"
+                  tag="span"
+                  className="font-semibold text-gray-900"
+                  fallback="Sustainability:"
+                />
+                <TranslatableText
+                  client:load
+                  translationKey="about_value_sustain_desc"
+                  tag="span"
+                  className="text-gray-600"
+                  fallback=" Supporting eco-friendly farming and responsible trade practices"
+                />
               </div>
             </li>
             <li class="flex items-start">
@@ -89,8 +113,20 @@ import TranslatableText from '../components/TranslatableText';
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
               </svg>
               <div>
-                <span class="font-semibold text-gray-900" data-i18n="about_value_partner">Partnership:</span>
-                <span class="text-gray-600" data-i18n="about_value_partner_desc"> Building long-term relationships based on trust and mutual success</span>
+                <TranslatableText
+                  client:load
+                  translationKey="about_value_partner"
+                  tag="span"
+                  className="font-semibold text-gray-900"
+                  fallback="Partnership:"
+                />
+                <TranslatableText
+                  client:load
+                  translationKey="about_value_partner_desc"
+                  tag="span"
+                  className="text-gray-600"
+                  fallback=" Building long-term relationships based on trust and mutual success"
+                />
               </div>
             </li>
             <li class="flex items-start">
@@ -98,8 +134,20 @@ import TranslatableText from '../components/TranslatableText';
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
               </svg>
               <div>
-                <span class="font-semibold text-gray-900" data-i18n="about_value_innov">Innovation:</span>
-                <span class="text-gray-600" data-i18n="about_value_innov_desc"> Continuously improving our processes and embracing new technologies</span>
+                <TranslatableText
+                  client:load
+                  translationKey="about_value_innov"
+                  tag="span"
+                  className="font-semibold text-gray-900"
+                  fallback="Innovation:"
+                />
+                <TranslatableText
+                  client:load
+                  translationKey="about_value_innov_desc"
+                  tag="span"
+                  className="text-gray-600"
+                  fallback=" Continuously improving our processes and embracing new technologies"
+                />
               </div>
             </li>
           </ul>
@@ -112,7 +160,13 @@ import TranslatableText from '../components/TranslatableText';
   <section class="section bg-gray-50">
     <div class="container space-y-16">
       <div>
-        <h2 class="text-3xl font-bold text-blue-800 mb-8 text-center" data-i18n="quality_service">Quality & Services</h2>
+        <TranslatableText
+          client:load
+          translationKey="quality_service"
+          tag="h2"
+          className="text-3xl font-bold text-blue-800 mb-8 text-center"
+          fallback="Quality & Services"
+        />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div class="card group hover:shadow-xl transition-shadow duration-300">
             <img 
@@ -123,7 +177,13 @@ import TranslatableText from '../components/TranslatableText';
               decoding="async"
             />
             <div class="p-6 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Quality Control</h4>
+              <TranslatableText
+                client:load
+                translationKey="quality_control_title"
+                tag="h4"
+                className="text-xl font-bold text-gray-900"
+                fallback="Quality Control"
+              />
             </div>
           </div>
           <div class="card group hover:shadow-xl transition-shadow duration-300">
@@ -135,7 +195,13 @@ import TranslatableText from '../components/TranslatableText';
               decoding="async"
             />
             <div class="p-6 text-center">
-              <h4 class="text-xl font-bold text-gray-900">Professional Delivery</h4>
+              <TranslatableText
+                client:load
+                translationKey="professional_delivery_title"
+                tag="h4"
+                className="text-xl font-bold text-gray-900"
+                fallback="Professional Delivery"
+              />
             </div>
           </div>
         </div>
@@ -148,7 +214,13 @@ import TranslatableText from '../components/TranslatableText';
     <div class="container">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-8">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="company_info_title">Company Information</h2>
+          <TranslatableText
+            client:load
+            translationKey="company_info_title"
+            tag="h2"
+            className="text-3xl font-bold text-gray-900 mb-4"
+            fallback="Company Information"
+          />
         </div>
         
         <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
@@ -161,8 +233,20 @@ import TranslatableText from '../components/TranslatableText';
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-medium text-gray-500" data-i18n="company_name_label">Company</p>
-                <p class="text-lg font-semibold text-gray-900" data-i18n="company_name">MED SS IMPORT & EXPORT</p>
+                <TranslatableText
+                  client:load
+                  translationKey="company_name_label"
+                  tag="p"
+                  className="text-sm font-medium text-gray-500"
+                  fallback="Company"
+                />
+                <TranslatableText
+                  client:load
+                  translationKey="company_name"
+                  tag="p"
+                  className="text-lg font-semibold text-gray-900"
+                  fallback="MED SS IMPORT & EXPORT"
+                />
               </div>
             </div>
 
@@ -174,8 +258,20 @@ import TranslatableText from '../components/TranslatableText';
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-medium text-gray-500" data-i18n="tax_id_label">Tax ID</p>
-                <p class="text-lg font-semibold text-gray-900" data-i18n="tax_id">NIF / B06934541</p>
+                <TranslatableText
+                  client:load
+                  translationKey="tax_id_label"
+                  tag="p"
+                  className="text-sm font-medium text-gray-500"
+                  fallback="Tax ID"
+                />
+                <TranslatableText
+                  client:load
+                  translationKey="tax_id"
+                  tag="p"
+                  className="text-lg font-semibold text-gray-900"
+                  fallback="NIF / B06934541"
+                />
               </div>
             </div>
 
@@ -188,8 +284,20 @@ import TranslatableText from '../components/TranslatableText';
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-medium text-gray-500" data-i18n="fiscal_address_label">Fiscal Address</p>
-                <p class="text-lg font-semibold text-gray-900" data-i18n="contact_fiscal_address">CALLE PUERTO 17 B SEVILLA 41020</p>
+                <TranslatableText
+                  client:load
+                  translationKey="fiscal_address_label"
+                  tag="p"
+                  className="text-sm font-medium text-gray-500"
+                  fallback="Fiscal Address"
+                />
+                <TranslatableText
+                  client:load
+                  translationKey="contact_fiscal_address"
+                  tag="p"
+                  className="text-lg font-semibold text-gray-900"
+                  fallback="CALLE PUERTO 17 B SEVILLA 41020"
+                />
               </div>
             </div>
 
@@ -201,8 +309,20 @@ import TranslatableText from '../components/TranslatableText';
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-medium text-gray-500" data-i18n="warehouse_address_label">Warehouse Address</p>
-                <p class="text-lg font-semibold text-gray-900" data-i18n="contact_hq_address">LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONA</p>
+                <TranslatableText
+                  client:load
+                  translationKey="warehouse_address_label"
+                  tag="p"
+                  className="text-sm font-medium text-gray-500"
+                  fallback="Warehouse Address"
+                />
+                <TranslatableText
+                  client:load
+                  translationKey="contact_hq_address"
+                  tag="p"
+                  className="text-lg font-semibold text-gray-900"
+                  fallback="LONGITUDINAL 5, No. 83 MERCABARNA 08040 BARCELONA"
+                />
               </div>
             </div>
 
@@ -214,8 +334,20 @@ import TranslatableText from '../components/TranslatableText';
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-medium text-gray-500" data-i18n="bank_account_label">Bank Account</p>
-                <p class="text-lg font-semibold text-gray-900 font-mono" data-i18n="bank_account">ES7600810215250001949495</p>
+                <TranslatableText
+                  client:load
+                  translationKey="bank_account_label"
+                  tag="p"
+                  className="text-sm font-medium text-gray-500"
+                  fallback="Bank Account"
+                />
+                <TranslatableText
+                  client:load
+                  translationKey="bank_account"
+                  tag="p"
+                  className="text-lg font-semibold text-gray-900 font-mono"
+                  fallback="ES7600810215250001949495"
+                />
               </div>
             </div>
 
@@ -227,8 +359,20 @@ import TranslatableText from '../components/TranslatableText';
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-medium text-gray-500" data-i18n="swift_label">SWIFT/BIC</p>
-                <p class="text-lg font-semibold text-gray-900 font-mono" data-i18n="swift_code">BSABESBBXXX</p>
+                <TranslatableText
+                  client:load
+                  translationKey="swift_label"
+                  tag="p"
+                  className="text-sm font-medium text-gray-500"
+                  fallback="SWIFT/BIC"
+                />
+                <TranslatableText
+                  client:load
+                  translationKey="swift_code"
+                  tag="p"
+                  className="text-lg font-semibold text-gray-900 font-mono"
+                  fallback="BSABESBBXXX"
+                />
               </div>
             </div>
 
@@ -240,7 +384,13 @@ import TranslatableText from '../components/TranslatableText';
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-medium text-gray-500" data-i18n="company_phone_label">Company Phone</p>
+                <TranslatableText
+                  client:load
+                  translationKey="company_phone_label"
+                  tag="p"
+                  className="text-sm font-medium text-gray-500"
+                  fallback="Company Phone"
+                />
                 <p class="text-lg font-semibold text-gray-900">+34 667 91 80 18</p>
               </div>
             </div>
@@ -253,7 +403,13 @@ import TranslatableText from '../components/TranslatableText';
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-medium text-gray-500" data-i18n="commercial_phone_label">Commercial Phone</p>
+                <TranslatableText
+                  client:load
+                  translationKey="commercial_phone_label"
+                  tag="p"
+                  className="text-sm font-medium text-gray-500"
+                  fallback="Commercial Phone"
+                />
                 <p class="text-lg font-semibold text-gray-900">+34 624 18 32 01</p>
               </div>
             </div>
@@ -266,7 +422,13 @@ import TranslatableText from '../components/TranslatableText';
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-medium text-gray-500" data-i18n="email_label">Email</p>
+                <TranslatableText
+                  client:load
+                  translationKey="email_label"
+                  tag="p"
+                  className="text-sm font-medium text-gray-500"
+                  fallback="Email"
+                />
                 <p class="text-lg font-semibold text-gray-900">info.medssimport@gmail.com</p>
               </div>
             </div>
